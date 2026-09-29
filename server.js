@@ -78,6 +78,15 @@ function validaNombreJugador(valor = "") {
   return nombre;
 }
 
+function validaNombreVisible(valor, fallback = "") {
+  const nombre = String(valor ?? fallback).trim();
+  if (!nombre) return String(fallback).trim();
+  if (nombre.length > 100) return null;
+  // Permitimos nombres visibles más amplios que el usuario.
+  if (/^[\p{C}]+$/u.test(nombre)) return null;
+  return nombre;
+}
+
 function validaPassword(valor) {
   return typeof valor === "string" && valor.length >= 1 && valor.length <= 200;
 }
@@ -504,6 +513,7 @@ function normalizarJugador(j) {
   return {
     id: jugador.id || generarId(),
     password: typeof jugador.password === "string" ? jugador.password : "",
+    nombreVisible: validaNombreVisible(jugador.nombreVisible, "") || "",
     trigo: numeroNoNegativo(jugador.trigo, 0),
     hierro: numeroNoNegativo(jugador.hierro, 0),
     entregas: Number.isInteger(jugador.entregas) && jugador.entregas >= 0
@@ -608,6 +618,7 @@ function jugadorPublico(j, mostrarPassword = false) {
     hierroInsumo: j.hierroInsumo,
     trigoProd: j.trigoProd,
     hierroProd: j.hierroProd,
+    nombreVisible: j.nombreVisible || "",
   };
 
   // Nunca se utiliza en el estado enviado a otros clientes.
@@ -1012,7 +1023,7 @@ io.on("connection", (socket) => {
   // CREAR JUGADOR
   // ---------------------------------------------------------------------------
 
-  socket.on("crearJugador", async ({ sala, nombre, password, trigo, hierro } = {}) => {
+  socket.on("crearJugador", async ({ sala, nombre, nombreVisible, password, trigo, hierro } = {}) => {
     try {
       const nombreSala = saneaSala(sala);
       const data = salas[nombreSala];
@@ -1036,6 +1047,11 @@ io.on("connection", (socket) => {
         return respuestaError(socket, "Contraseña de jugador no válida", "PASSWORD_INVALIDA");
       }
 
+      const nombreVisibleJugador = validaNombreVisible(nombreVisible, nombreJugador);
+      if (!nombreVisibleJugador) {
+        return respuestaError(socket, "Nombre visible no válido", "NOMBRE_VISIBLE_INVALIDO");
+      }
+
       if (data.jugadores[nombreJugador]) {
         return respuestaError(socket, "Jugador ya existe", "JUGADOR_EXISTE");
       }
@@ -1046,6 +1062,7 @@ io.on("connection", (socket) => {
       data.jugadores[nombreJugador] = {
         id: generarId(),
         password: await hashPassword(password),
+        nombreVisible: nombreVisibleJugador,
         trigo: trigoN,
         hierro: hierroN,
         entregas: 0,
@@ -1130,6 +1147,7 @@ io.on("connection", (socket) => {
       socket.emit("jugadorEntrado", {
         sala: nombreSala,
         nombre: nombreJugador,
+        nombreVisible: jugador.nombreVisible || nombreJugador,
       });
       socket.emit("historialSesiones", historialSesionesPublico(data, socket));
 
@@ -1137,6 +1155,70 @@ io.on("connection", (socket) => {
     } catch (err) {
       console.error(err);
       respuestaError(socket, "No se pudo iniciar sesión", "LOGIN_JUGADOR");
+    }
+  });
+
+  // ---------------------------------------------------------------------------
+  // CAMBIAR CONTRASEÑA DEL JUGADOR
+  // ---------------------------------------------------------------------------
+
+  socket.on("cambiarPasswordJugador", async ({ sala, actual, nueva, confirmacion } = {}) => {
+    try {
+      const contexto = exigirJugador(socket, sala);
+      if (!contexto) return;
+
+      const { data, jugador } = contexto;
+
+      if (!validaPassword(actual) || !validaPassword(nueva) || !validaPassword(confirmacion)) {
+        return respuestaError(socket, "Las contraseñas no son válidas", "PASSWORD_INVALIDA");
+      }
+
+      if (nueva !== confirmacion) {
+        return respuestaError(socket, "La nueva contraseña no coincide", "PASSWORD_NO_COINCIDE");
+      }
+
+      const correcto = await verificarYActualizarPassword(actual, jugador.password);
+      if (!correcto) {
+        return respuestaError(socket, "La contraseña actual es incorrecta", "PASSWORD_ACTUAL_INCORRECTA");
+      }
+
+      jugador.password = await hashPassword(nueva);
+      data.updatedAt = ahora();
+      await encolarGuardado();
+      socket.emit("passwordCambiada");
+    } catch (err) {
+      console.error(err);
+      respuestaError(socket, "No se pudo cambiar la contraseña", "ERROR_CAMBIAR_PASSWORD");
+    }
+  });
+
+  // ---------------------------------------------------------------------------
+  // RESTABLECER CONTRASEÑA DE JUGADOR (ADMIN)
+  // ---------------------------------------------------------------------------
+
+  socket.on("restablecerPasswordJugador", async ({ sala, nombre, nueva } = {}) => {
+    try {
+      const data = exigirAdmin(socket, sala);
+      if (!data) return;
+
+      const nombreJugador = validaNombreJugador(nombre);
+      const jugador = nombreJugador ? data.jugadores[nombreJugador] : null;
+
+      if (!jugador) {
+        return respuestaError(socket, "Jugador no encontrado", "JUGADOR_NO_ENCONTRADO");
+      }
+
+      if (!validaPassword(nueva)) {
+        return respuestaError(socket, "La nueva contraseña no es válida", "PASSWORD_INVALIDA");
+      }
+
+      jugador.password = await hashPassword(nueva);
+      data.updatedAt = ahora();
+      await encolarGuardado();
+      socket.emit("passwordRestablecida", { nombre: nombreJugador });
+    } catch (err) {
+      console.error(err);
+      respuestaError(socket, "No se pudo restablecer la contraseña", "ERROR_RESTABLECER_PASSWORD");
     }
   });
 
@@ -1160,12 +1242,16 @@ io.on("connection", (socket) => {
         const password = String(entrada?.password ?? "");
         if (!validaPassword(password)) continue;
 
+        const nombreVisible = validaNombreVisible(entrada?.nombre_visible ?? entrada?.nombreVisible, nombre);
+        if (!nombreVisible) continue;
+
         const trigoN = numeroNoNegativo(entrada?.trigo, 0);
         const hierroN = numeroNoNegativo(entrada?.hierro, 0);
 
         data.jugadores[nombre] = {
           id: generarId(),
           password: await hashPassword(password),
+          nombreVisible,
           trigo: trigoN,
           hierro: hierroN,
           entregas: Number.isInteger(entrada?.entregas) && entrada.entregas >= 0
