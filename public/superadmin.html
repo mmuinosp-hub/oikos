@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OIKOS · Superadministrador</title>
-<script src="/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script><script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <style>
 :root{--bg:#f4f7fb;--card:#fff;--text:#18212f;--muted:#64748b;--primary:#2563eb;--border:#e2e8f0;--ok:#15803d;--warn:#b45309}
 *{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:linear-gradient(135deg,#eef4ff,#f8fafc);color:var(--text)}
@@ -54,7 +54,7 @@ details{border:1px solid var(--border);border-radius:12px;margin:10px 0;backgrou
   </div>
 
   <div id="detalleCard" class="card hidden" style="margin-top:18px">
-    <div class="back"><button class="secondary" id="backBtn">← Volver a experimentos</button></div>
+    <div class="back"><button class="secondary" id="backBtn">← Volver a experimentos</button> <button id="downloadBtn">⬇️ Descargar Excel</button></div>
     <div id="detalle"></div>
   </div>
 </section>
@@ -91,6 +91,7 @@ socket.on("superadminEntrado",()=>{autenticado=true;$("loginCard").classList.add
 socket.on("experimentosSuperadmin",render);
 socket.on("experimentoSuperadmin",d=>{
  if(!d)return;
+ window.experimentoActual=d;
  $("listaCard").classList.add("hidden");$("detalleCard").classList.remove("hidden");
  const sesiones=Array.isArray(d.sesiones)?d.sesiones:[];
  const entregas=Array.isArray(d.entregas)?d.entregas:[];
@@ -108,6 +109,28 @@ socket.on("experimentoSuperadmin",d=>{
  html+=`</div></details>`;
  $("detalle").innerHTML=html;
 });
+window.descargarExperimento=()=>{
+ const d=window.experimentoActual;
+ if(!d)return alert("Selecciona un experimento primero.");
+ if(typeof XLSX==="undefined")return alert("No se ha podido cargar el módulo Excel.");
+ const sesiones=Array.isArray(d.sesiones)?d.sesiones:[];
+ const e=[["Sesión","Fecha inicio","Fecha fin","De","Para","Trigo entregado","Hierro entregado","Hora"]];
+ const p=[["Sesión","Fecha inicio","Fecha fin","Jugador","Trigo inicial","Hierro inicial","Proceso","Trigo producido","Hierro producido","Trigo final","Hierro final"]];
+ const raw=[["Sesión","Fecha inicio","Fecha fin","Datos de sesión (JSON)"]];
+ sesiones.forEach((x,i)=>{
+   const n=x.numeroSesion??x.sesion??i+1;
+   (x.entregas||[]).forEach(v=>e.push([n,x.iniciadaAt,x.finalizadaAt,v.de,v.para,v.trigo??0,v.hierro??0,v.timestamp]));
+   Object.entries(x.produccion||{}).forEach(([k,v])=>p.push([n,x.iniciadaAt,x.finalizadaAt,k,v.trigoInicial??0,v.hierroInicial??0,v.proceso??"—",v.trigoProducido??0,v.hierroProducido??0,v.trigoFinal??0,v.hierroFinal??0]));
+   raw.push([n,x.iniciadaAt,x.finalizadaAt,JSON.stringify(x)]);
+ });
+ const wb=XLSX.utils.book_new();
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(e),"Entregas");
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(p),"Producción");
+ XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(raw),"Sesiones");
+ XLSX.writeFile(wb,`OIKOS_superadmin_${d.sala}.xlsx`);
+};
+$("downloadBtn").onclick=()=>window.descargarExperimento();
+
 socket.on("errorJuego",d=>{if(!autenticado||d?.codigo?.startsWith("LOGIN_")||d?.codigo==="SUPERADMIN_DESACTIVADO")err(d?.mensaje||"No se ha podido iniciar sesión.")});
 socket.on("error",m=>{if(!autenticado)err(m)});
 </script>
