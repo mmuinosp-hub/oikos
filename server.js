@@ -479,7 +479,7 @@ function normalizarSala(sala) {
   };
 
   s.fase = s.fase || (
-    s.produccionAbierta ? "produccion" : "entregas"
+    s.produccionAbierta ? "produccion" : "pausa"
   );
   // La fase "pausa" representa el intervalo entre cerrar producción y
   // abrir manualmente la siguiente sesión.
@@ -492,13 +492,26 @@ function normalizarSala(sala) {
   s.jugadores = s.jugadores && typeof s.jugadores === "object"
     ? s.jugadores
     : {};
+  s.nombresVisibles = s.nombresVisibles && typeof s.nombresVisibles === "object"
+    ? s.nombresVisibles
+    : {};
 
   for (const [nombre, jugador] of Object.entries(s.jugadores)) {
     s.jugadores[nombre] = normalizarJugador(jugador);
+    if (!s.nombresVisibles[nombre]) s.nombresVisibles[nombre] = s.jugadores[nombre].nombreVisible || nombre;
   }
 
   s.historial = Array.isArray(s.historial) ? s.historial : [];
   s.historialSesiones = Array.isArray(s.historialSesiones) ? s.historialSesiones : [];
+  s.historialEdicionesJugadores = Array.isArray(s.historialEdicionesJugadores) ? s.historialEdicionesJugadores : [];
+
+  // Corrige salas creadas con la versión que mostraba la primera sesión como 2.
+  // Si aún no hay ninguna sesión cerrada, esa partida en curso es la sesión 1.
+  if (s.numeroSesion === 2 && s.historialSesiones.length === 0) {
+    s.numeroSesion = 1;
+    s.historial = s.historial.map(e => ({ ...e, sesion: 1 }));
+  }
+
   s.createdAt = s.createdAt || ahora();
   s.sesionActualIniciadaAt = s.sesionActualIniciadaAt || s.createdAt;
   s.updatedAt = s.updatedAt || ahora();
@@ -522,6 +535,8 @@ function normalizarJugador(j) {
     entregas: Number.isInteger(jugador.entregas) && jugador.entregas >= 0
       ? jugador.entregas
       : 0,
+    // Indica si ha alcanzado el máximo vigente. Se recalcula al cambiar el máximo.
+    entregasMaximoAlcanzado: Boolean(jugador.entregasMaximoAlcanzado),
     proceso: [1, 2, 3].includes(jugador.proceso) ? jugador.proceso : null,
     trigoInsumo: numeroNoNegativo(jugador.trigoInsumo, numeroNoNegativo(jugador.trigo, 0)),
     hierroInsumo: numeroNoNegativo(jugador.hierroInsumo, numeroNoNegativo(jugador.hierro, 0)),
@@ -681,6 +696,7 @@ function estadoPublico(sala, socket) {
     numeroSesion: data.numeroSesion,
     config: copiar(data.config),
     jugadores,
+    nombresVisibles: { ...(data.nombresVisibles || {}) },
     historial,
     historialSesiones: historialSesionesPublico(data, socket),
 
@@ -867,6 +883,17 @@ function exigirSuperadmin(socket) {
   return true;
 }
 
+
+// -----------------------------------------------------------------------------
+// HISTORIAL DE EDICIONES DE JUGADORES
+// -----------------------------------------------------------------------------
+
+function historialEdicionesJugadoresPublico(data, socket) {
+  const esAdmin = socket.data.rol === "admin" && data.adminId === socket.id;
+  if (!esAdmin) return [];
+  return (data.historialEdicionesJugadores || []).map((e) => ({ ...e }));
+}
+
 // -----------------------------------------------------------------------------
 // SOCKET.IO
 // -----------------------------------------------------------------------------
@@ -952,8 +979,10 @@ io.on("connection", (socket) => {
         jugadores: {},
         historial: [],
         historialSesiones: [],
+        historialEdicionesJugadores: [],
+        nombresVisibles: {},
         sesionActualIniciadaAt: ahora(),
-        fase: "entregas",
+        fase: "pausa",
         numeroSesion: 1,
         config: copiar(DEFAULT_CONFIG),
         createdAt: ahora(),
@@ -1069,6 +1098,7 @@ io.on("connection", (socket) => {
         trigo: trigoN,
         hierro: hierroN,
         entregas: 0,
+        entregasMaximoAlcanzado: false,
         proceso: null,
         trigoInsumo: trigoN,
         hierroInsumo: hierroN,
@@ -1076,6 +1106,7 @@ io.on("connection", (socket) => {
         hierroProd: 0,
       };
 
+      data.nombresVisibles[nombreJugador] = nombreVisibleJugador;
       data.updatedAt = ahora();
 
       await encolarGuardado();
@@ -1226,6 +1257,187 @@ io.on("connection", (socket) => {
   });
 
   // ---------------------------------------------------------------------------
+  // EDITAR JUGADOR (ADMIN)
+  // ---------------------------------------------------------------------------
+
+  function snapshotJugador(nombre, jugador, passwordEstado = "—") {
+    return {
+      usuario: nombre || "—",
+      nombreVisible: jugador?.nombreVisible || nombre || "—",
+      trigo: Number(jugador?.trigo) || 0,
+      hierro: Number(jugador?.hierro) || 0,
+      entregas: Number(jugador?.entregas) || 0,
+      proceso: jugador?.proceso ?? null,
+      contraseña: passwordEstado,
+    };
+  }
+
+  socket.on("editarJugador", async ({ sala, original, nombre, nombreVisible, password, trigo, hierro, entregas, proceso } = {}) => {
+    try {
+      const data = exigirAdmin(socket, sala);
+      if (!data) return;
+
+      const nombreOriginal = validaNombreJugador(original);
+      const jugador = nombreOriginal ? data.jugadores[nombreOriginal] : null;
+      if (!jugador) {
+        return respuestaError(socket, "Jugador no encontrado", "JUGADOR_NO_ENCONTRADO");
+      }
+
+      const nuevoNombre = validaNombreJugador(nombre);
+      if (!nuevoNombre) return respuestaError(socket, "Usuario no válido", "NOMBRE_INVALIDO");
+      if (nuevoNombre !== nombreOriginal && data.jugadores[nuevoNombre]) {
+        return respuestaError(socket, "Ese usuario ya existe", "JUGADOR_EXISTE");
+      }
+
+      const nuevoVisible = validaNombreVisible(nombreVisible, nuevoNombre);
+      if (!nuevoVisible) return respuestaError(socket, "Nombre visible no válido", "NOMBRE_VISIBLE_INVALIDO");
+
+      const trigoN = numeroNoNegativo(trigo, 0);
+      const hierroN = numeroNoNegativo(hierro, 0);
+      const entregasN = Number(entregas);
+      if (!Number.isInteger(entregasN) || entregasN < 0) {
+        return respuestaError(socket, "Número de entregas no válido", "ENTREGAS_INVALIDAS");
+      }
+      if (proceso !== null && proceso !== undefined && proceso !== "" && ![1, 2, 3].includes(Number(proceso))) {
+        return respuestaError(socket, "Proceso no válido", "PROCESO_INVALIDO");
+      }
+
+      const procesoN = proceso === null || proceso === undefined || proceso === "" ? null : Number(proceso);
+      if (password !== undefined && String(password) !== "" && !validaPassword(String(password))) {
+        return respuestaError(socket, "Contraseña no válida", "PASSWORD_INVALIDA");
+      }
+
+      const passwordCambiada = password !== undefined && String(password) !== "";
+      const snapshotAnterior = snapshotJugador(nombreOriginal, jugador, "—");
+      const cambios = [];
+      if (nombreOriginal !== nuevoNombre) cambios.push({ campo: "Usuario", antes: nombreOriginal, despues: nuevoNombre });
+      const visibleAnterior = jugador.nombreVisible || nombreOriginal;
+      if (visibleAnterior !== nuevoVisible) cambios.push({ campo: "Nombre visible", antes: visibleAnterior, despues: nuevoVisible });
+      if (Number(jugador.trigo) !== trigoN) cambios.push({ campo: "Trigo", antes: Number(jugador.trigo) || 0, despues: trigoN });
+      if (Number(jugador.hierro) !== hierroN) cambios.push({ campo: "Hierro", antes: Number(jugador.hierro) || 0, despues: hierroN });
+      if (Number(jugador.entregas) !== entregasN) cambios.push({ campo: "Entregas", antes: Number(jugador.entregas) || 0, despues: entregasN });
+      const procesoAnterior = jugador.proceso ?? null;
+      if (procesoAnterior !== procesoN) cambios.push({ campo: "Proceso", antes: procesoAnterior, despues: procesoN });
+      if (passwordCambiada) cambios.push({ campo: "Contraseña", antes: "—", despues: "actualizada" });
+
+      jugador.nombreVisible = nuevoVisible;
+      jugador.trigo = trigoN;
+      jugador.hierro = hierroN;
+      jugador.entregas = entregasN;
+      jugador.entregasMaximoAlcanzado = data.config.maxEntregas >= 0 && entregasN >= data.config.maxEntregas;
+      jugador.proceso = procesoN;
+      jugador.trigoInsumo = Number.isFinite(Number(jugador.trigoInsumo)) ? jugador.trigoInsumo : trigoN;
+      jugador.hierroInsumo = Number.isFinite(Number(jugador.hierroInsumo)) ? jugador.hierroInsumo : hierroN;
+      if (password !== undefined && String(password) !== "") jugador.password = await hashPassword(String(password));
+
+      if (nuevoNombre !== nombreOriginal) {
+        delete data.jugadores[nombreOriginal];
+        data.jugadores[nuevoNombre] = jugador;
+        // Conservamos el alias anterior para que el historial siga pudiendo
+        // resolver correctamente las acciones realizadas con el usuario antiguo.
+        data.nombresVisibles[nombreOriginal] = jugador.nombreVisible || nuevoVisible;
+      }
+      data.nombresVisibles[nuevoNombre] = nuevoVisible;
+      data.updatedAt = ahora();
+
+      if (cambios.length) {
+        const snapshotPosterior = snapshotJugador(
+          nuevoNombre,
+          jugador,
+          passwordCambiada ? "actualizada" : "—"
+        );
+        data.historialEdicionesJugadores.push({
+          id: generarId(),
+          timestamp: data.updatedAt,
+          accion: "Edición",
+          usuario: nuevoNombre,
+          nombreVisible: nuevoVisible,
+          usuarioAnterior: nombreOriginal,
+          nombreVisibleAnterior: visibleAnterior,
+          anterior: snapshotAnterior,
+          posterior: snapshotPosterior,
+          cambios,
+          realizadoPor: "Administrador",
+        });
+      }
+
+      await encolarGuardado();
+
+      // Si el jugador estaba conectado, actualizamos su usuario sin expulsarlo.
+      if (nuevoNombre !== nombreOriginal) {
+        const sockets = await io.in(sala).fetchSockets();
+        for (const cliente of sockets) {
+          if (cliente.data.rol === "jugador" && cliente.data.nombreJugador === nombreOriginal) {
+            cliente.data.nombreJugador = nuevoNombre;
+          }
+        }
+      }
+
+      emitirEstado(sala);
+      socket.emit("jugadorEditado", { original: nombreOriginal, nombre: nuevoNombre });
+    } catch (err) {
+      console.error(err);
+      respuestaError(socket, "No se pudo editar el jugador", "ERROR_EDITAR_JUGADOR");
+    }
+  });
+
+  // ---------------------------------------------------------------------------
+  // ELIMINAR JUGADOR (ADMIN)
+  // ---------------------------------------------------------------------------
+
+  socket.on("eliminarJugador", async ({ sala, nombre } = {}) => {
+    try {
+      const data = exigirAdmin(socket, sala);
+      if (!data) return;
+
+      const nombreJugador = validaNombreJugador(nombre);
+      const jugador = nombreJugador ? data.jugadores[nombreJugador] : null;
+      if (!jugador) {
+        return respuestaError(socket, "Jugador no encontrado", "JUGADOR_NO_ENCONTRADO");
+      }
+
+      // Conservamos su nombre visible para que las acciones históricas sigan
+      // identificándolo aunque ya no forme parte de los jugadores activos.
+      const snapshotAnterior = snapshotJugador(nombreJugador, jugador, "—");
+      const timestampEliminacion = ahora();
+      data.nombresVisibles[nombreJugador] = jugador.nombreVisible || nombreJugador;
+      delete data.jugadores[nombreJugador];
+      data.historialEdicionesJugadores.push({
+        id: generarId(),
+        timestamp: timestampEliminacion,
+        accion: "Eliminación",
+        usuario: "—",
+        nombreVisible: "—",
+        usuarioAnterior: nombreJugador,
+        nombreVisibleAnterior: snapshotAnterior.nombreVisible,
+        anterior: snapshotAnterior,
+        posterior: { usuario: "—", nombreVisible: "—", trigo: "—", hierro: "—", entregas: "—", proceso: "—", contraseña: "—" },
+        cambios: [
+          { campo: "Jugador", antes: nombreJugador, despues: "Eliminado" }
+        ],
+        realizadoPor: "Administrador",
+      });
+      data.updatedAt = timestampEliminacion;
+      await encolarGuardado();
+
+      // Expulsamos sus conexiones activas de esta sala, si las hubiera.
+      const sockets = await io.in(sala).fetchSockets();
+      for (const cliente of sockets) {
+        if (cliente.data.rol === "jugador" && cliente.data.nombreJugador === nombreJugador) {
+          cliente.emit("jugadorEliminado");
+          cliente.disconnect(true);
+        }
+      }
+
+      emitirEstado(sala);
+      socket.emit("jugadorEliminadoAdmin", { nombre: nombreJugador });
+    } catch (err) {
+      console.error(err);
+      respuestaError(socket, "No se pudo eliminar el jugador", "ERROR_ELIMINAR_JUGADOR");
+    }
+  });
+
+  // ---------------------------------------------------------------------------
   // IMPORTAR JUGADORES
   // ---------------------------------------------------------------------------
 
@@ -1260,12 +1472,14 @@ io.on("connection", (socket) => {
           entregas: Number.isInteger(entrada?.entregas) && entrada.entregas >= 0
             ? entrada.entregas
             : 0,
+          entregasMaximoAlcanzado: false,
           proceso: null,
           trigoInsumo: trigoN,
           hierroInsumo: hierroN,
           trigoProd: 0,
           hierroProd: 0,
         };
+        data.nombresVisibles[nombre] = nombreVisible;
       }
 
       data.updatedAt = ahora();
@@ -1294,7 +1508,13 @@ io.on("connection", (socket) => {
       if (!Number.isInteger(max) || max < 0 || max > 1000) {
         return respuestaError(socket, "Número máximo de entregas no válido", "MAX_ENTREGAS_INVALIDO");
       }
+      const maxAnterior = Number(data.config.maxEntregas);
       data.config.maxEntregas = max;
+      if (max !== maxAnterior) {
+        for (const jugador of Object.values(data.jugadores || {})) {
+          jugador.entregasMaximoAlcanzado = max >= 0 && Number(jugador.entregas) >= max;
+        }
+      }
     }
 
     if (typeof config.tipoJuego === "string") {
@@ -1334,14 +1554,17 @@ io.on("connection", (socket) => {
         return respuestaError(socket, "Las entregas están cerradas", "FASE_INCORRECTA");
       }
 
-      if (data.config.maxEntregas >= 0 &&
-          emisor.entregas >= data.config.maxEntregas) {
+      if (data.config.maxEntregas >= 0 && emisor.entregas >= data.config.maxEntregas) {
+        emisor.entregasMaximoAlcanzado = true;
         return respuestaError(
           socket,
-          `Has alcanzado el máximo de ${data.config.maxEntregas} entregas`,
+          `Has alcanzado el máximo de ${data.config.maxEntregas} entregas de esta sesión.`,
           "MAX_ENTREGAS"
         );
       }
+      // Si el administrador amplió el máximo, un jugador que había alcanzado
+      // el límite anterior vuelve a estar habilitado automáticamente.
+      emisor.entregasMaximoAlcanzado = false;
 
       const receptorNombre = validaNombreJugador(para);
       const receptor = receptorNombre ? data.jugadores[receptorNombre] : null;
@@ -1377,6 +1600,9 @@ io.on("connection", (socket) => {
       receptor.trigo += cantidadTrigo;
       receptor.hierro += cantidadHierro;
       emisor.entregas += 1;
+      if (data.config.maxEntregas >= 0 && emisor.entregas >= data.config.maxEntregas) {
+        emisor.entregasMaximoAlcanzado = true;
+      }
 
       data.historial.push({
         id: generarId(),
@@ -1619,10 +1845,14 @@ io.on("connection", (socket) => {
         jugador.hierroProd = 0;
         jugador.proceso = null;
         jugador.entregas = 0;
+        jugador.entregasMaximoAlcanzado = false;
       }
 
       data.fase = "entregas";
-      data.numeroSesion += 1;
+      const esPrimeraSesion = data.numeroSesion === 1 &&
+        (!Array.isArray(data.historialSesiones) || data.historialSesiones.length === 0) &&
+        (!Array.isArray(data.historial) || data.historial.length === 0);
+      if (!esPrimeraSesion) data.numeroSesion += 1;
       data.sesionActualIniciadaAt = ahora();
       data.historial = [];
       data.updatedAt = ahora();
@@ -1634,6 +1864,7 @@ io.on("connection", (socket) => {
       respuestaError(socket, "No se pudo iniciar una nueva sesión", "ERROR_NUEVA_SESION");
     }
   });
+
 
   // ---------------------------------------------------------------------------
   // CONSULTAR HISTORIAL
@@ -1648,6 +1879,17 @@ io.on("connection", (socket) => {
     } catch (err) {
       console.error(err);
       respuestaError(socket, "No se pudo cargar el historial", "ERROR_HISTORIAL");
+    }
+  });
+
+  socket.on("solicitarHistorialEdicionesJugadores", async (sala) => {
+    try {
+      const data = obtenerSalaDesdeSocket(socket, sala);
+      if (!data) return;
+      socket.emit("historialEdicionesJugadores", historialEdicionesJugadoresPublico(data, socket));
+    } catch (err) {
+      console.error(err);
+      respuestaError(socket, "No se pudo cargar el historial de ediciones", "ERROR_HISTORIAL_EDICIONES");
     }
   });
 
