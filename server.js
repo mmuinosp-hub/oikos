@@ -481,6 +481,9 @@ function normalizarSala(sala) {
   s.fase = s.fase || (
     s.produccionAbierta ? "produccion" : "entregas"
   );
+  // La fase "pausa" representa el intervalo entre cerrar producción y
+  // abrir manualmente la siguiente sesión.
+  if (!["entregas", "produccion", "pausa"].includes(s.fase)) s.fase = "entregas";
 
   s.numeroSesion = Number.isInteger(s.numeroSesion)
     ? s.numeroSesion
@@ -1559,20 +1562,10 @@ io.on("connection", (socket) => {
       await encolarGuardado();
       await guardarHistorial(sala);
 
-      // Terminamos la sesión y dejamos preparada la siguiente fase de entregas.
-      data.fase = "entregas";
-      data.numeroSesion += 1;
-      data.sesionActualIniciadaAt = ahora();
-
-      for (const jugador of Object.values(data.jugadores)) {
-        jugador.trigoInsumo = jugador.trigo;
-        jugador.hierroInsumo = jugador.hierro;
-        jugador.trigoProd = 0;
-        jugador.hierroProd = 0;
-        jugador.proceso = null;
-      }
-
-      data.historial = [];
+      // Cerramos la producción, pero dejamos una pausa explícita antes de
+      // permitir la siguiente sesión. Durante esta fase no hay entregas ni
+      // producción posibles.
+      data.fase = "pausa";
       data.updatedAt = ahora();
 
       await encolarGuardado();
@@ -1610,6 +1603,14 @@ io.on("connection", (socket) => {
     try {
       const data = exigirAdmin(socket, sala);
       if (!data) return;
+
+      if (data.fase !== "pausa") {
+        return respuestaError(
+          socket,
+          "La sala no está en pausa entre sesiones",
+          "FASE_INCORRECTA"
+        );
+      }
 
       for (const jugador of Object.values(data.jugadores)) {
         jugador.trigoInsumo = jugador.trigo;
