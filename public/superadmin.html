@@ -115,12 +115,12 @@ window.descargarExperimento=()=>{
  if(typeof XLSX==="undefined")return alert("No se ha podido cargar el módulo Excel.");
  const sesiones=Array.isArray(d.sesiones)?d.sesiones:[];
  const e=[["Sesión","Fecha inicio","Fecha fin","De","Para","Trigo entregado","Hierro entregado","Hora"]];
- const p=[["Sesión","Fecha inicio","Fecha fin","Jugador","Trigo inicial","Hierro inicial","Proceso","Trigo producido","Hierro producido","Trigo final","Hierro final"]];
+ const p=[["Sesión","Fecha inicio","Fecha fin","Jugador","Trigo después de entregas","Hierro después de entregas","Proceso","Producción de trigo","Producción de hierro"]];
  const raw=[["Sesión","Fecha inicio","Fecha fin","Datos de sesión (JSON)"]];
  sesiones.forEach((x,i)=>{
    const n=x.numeroSesion??x.sesion??i+1;
    (x.entregas||[]).forEach(v=>e.push([n,x.iniciadaAt,x.finalizadaAt,v.de,v.para,v.trigo??0,v.hierro??0,v.timestamp]));
-   Object.entries(x.produccion||{}).forEach(([k,v])=>p.push([n,x.iniciadaAt,x.finalizadaAt,k,v.trigoInicial??0,v.hierroInicial??0,v.proceso??"—",v.trigoProducido??0,v.hierroProducido??0,v.trigoFinal??0,v.hierroFinal??0]));
+   Object.entries(x.produccion||{}).forEach(([k,v])=>p.push([n,x.iniciadaAt,x.finalizadaAt,k,v.trigoInicial??0,v.hierroInicial??0,v.proceso??"—",v.trigoProducido??0,v.hierroProducido??0]));
    raw.push([n,x.iniciadaAt,x.finalizadaAt,JSON.stringify(x)]);
  });
  const wb=XLSX.utils.book_new();
