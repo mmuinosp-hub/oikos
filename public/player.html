@@ -24,7 +24,14 @@
 
 <div id="deliveryBox" class="box"><h3>Enviar entrega</h3><form id="delivery"><select id="to" required></select><input id="sendWheat" type="number" min="0" step="any" placeholder="Trigo"><input id="sendIron" type="number" min="0" step="any" placeholder="Hierro"><button>Enviar</button></form></div>
 <div id="productionBox" class="box hidden"><h3>Elegir proceso</h3><button data-process="1">Proceso 1 — Trigo</button><button data-process="2">Proceso 2 — Hierro</button><button data-process="3">Proceso 3 — Simplificar</button><p id="chosen"></p></div>
-<div class="box"><h3>Calculadora</h3><input id="calcWheat" type="number" min="0" step="any"><input id="calcIron" type="number" min="0" step="any"><div id="calc"></div></div>
+<div class="box"><h3>Calculadora</h3>
+
+
+<table width=100%><tr><td width=50%>Trigo:<input id="calcWheat" type="number" min="0" step="any">
+<td width=50%>Hierro:<input id="calcIron" type="number" min="0" step="any">
+</tr></table>
+
+<div id="calc"></div></div>
 
 <details class="open-default" open><summary>🤝 Entregas que hago y recibo</summary><div class="inside"><div id="myDeliveries">Sin entregas.</div></div></details>
 <details><summary>📜 Entregas de la sesión actual</summary><div class="inside"><div id="currentDeliveries">Sin entregas.</div></div></details>
@@ -44,7 +51,14 @@ $('passwordForm').onsubmit=e=>{e.preventDefault();$('passwordMsg').textContent='
 $('delivery').onsubmit=e=>{e.preventDefault();let to=$('to').value,w=Number($('sendWheat').value)||0,h=Number($('sendIron').value)||0;if(!to||w<0||h<0||w+h===0)return alert('Selecciona destinatario y cantidades');s.emit('enviarEntrega',{sala:room,para:to,trigo:w,hierro:h});e.target.reset()};
 document.querySelectorAll('[data-process]').forEach(b=>b.onclick=()=>s.emit('elegirProceso',{sala:room,proceso:Number(b.dataset.process)}));
 ['calcWheat','calcIron'].forEach(x=>$(x).oninput=calc);
-function calc(){let t=Number($('calcWheat').value)||0,h=Number($('calcIron').value)||0,f1=Math.min(t/280,h/12),f2=Math.min(t/120,h/8);let d1T=Math.max(0,t-280*f1),d1H=Math.max(0,h-12*f1),d2T=Math.max(0,t-120*f2),d2H=Math.max(0,h-8*f2);$('calc').innerHTML=`<table><tr><th>Proceso</th><th>Trigo producido</th><th>Hierro producido</th><th>Trigo desperdiciado</th><th>Hierro desperdiciado</th></tr><tr><td>1</td><td>${n(575*f1)}</td><td>0</td><td>${n(d1T)}</td><td>${n(d1H)}</td></tr><tr><td>2</td><td>0</td><td>${n(20*f2)}</td><td>${n(d2T)}</td><td>${n(d2H)}</td></tr><tr><td>3</td><td>${n(t/2)}</td><td>${n(h/2)}</td><td>0.00</td><td>0.00</td></tr></table><p class="muted">El desperdicio es el insumo que queda fuera de la proporción necesaria del proceso.</p>`}
+function calc(){let t=Number($('calcWheat').value)||0,h=Number($('calcIron').value)||0,f1=Math.min(t/280,h/12),f2=Math.min(t/120,h/8);let d1T=Math.max(0,t-280*f1),d1H=Math.max(0,h-12*f1),d2T=Math.max(0,t-120*f2),d2H=Math.max(0,h-8*f2);$('calc').innerHTML=`<table><tr><th>Proceso</th><th>Trigo producido</th><th>Hierro producido</th><th>Trigo desperdiciado</th><th>Hierro desperdiciado</th></tr><tr><td>1</td><td>${n(575*f1)}</td><td>0</td><td>${n(d1T)}</td><td>${n(d1H)}</td></tr><tr><td>2</td><td>0</td><td>${n(20*f2)}</td><td>${n(d2T)}</td><td>${n(d2H)}</td></tr><tr><td>3</td><td>${n(t/2)}</td><td>${n(h/2)}</td><td>0.00</td><td>0.00</td></tr></table><p class="muted">
+Proceso 1º: 280 de trigo + 12 de hierro produce para la sesión siguiente 575 de trigo, o proporción similar;
+<br>
+Proceso 2º: 120 de trigo + 8 de hierro produce para la sesión siguiente 20 de hierro, o proporción similar;
+<br>
+Proceso 3º: se produce la mitad del trigo y hierro disponibles.
+<br><br>
+El desperdicio es el insumo que queda fuera de la proporción necesaria del proceso.</p>`}
 function tablaEntregas(a){if(!a?.length)return'<p class="muted">Sin entregas.</p>';return'<table><tr><th>Tipo</th><th>Contraparte</th><th>Trigo</th><th>Hierro</th><th>Hora</th></tr>'+a.slice().reverse().map(e=>`<tr><td>${e.de===name?'Enviada':'Recibida'}</td><td>${esc(nombreVisible(e.de===name?e.para:e.de))}</td><td>${n(e.trigo)}</td><td>${n(e.hierro)}</td><td>${dt(e.timestamp)}</td></tr>`).join('')+'</table>'}
 function tablaEntregasGlobal(a){if(!a?.length)return'<p class="muted">Sin entregas.</p>';return'<table><tr><th>De</th><th>Para</th><th>Trigo</th><th>Hierro</th><th>Hora</th></tr>'+a.slice().reverse().map(e=>`<tr><td>${esc(nombreVisible(e.de))}</td><td>${esc(nombreVisible(e.para))}</td><td>${n(e.trigo)}</td><td>${n(e.hierro)}</td><td>${dt(e.timestamp)}</td></tr>`).join('')+'</table>'}
 function tablaProduccion(p){let a=Object.entries(p||{});if(!a.length)return'<p class="muted">Sin datos de producción visibles.</p>';return'<table><tr><th>Jugador</th><th>Trigo inicial</th><th>Hierro inicial</th><th>Proceso</th><th>Trigo producido</th><th>Hierro producido</th></tr>'+a.map(([k,j])=>`<tr><td>${esc(nombreVisible(k))}</td><td>${n(j.trigoInicial)}</td><td>${n(j.hierroInicial)}</td><td>${j.proceso==null?'No visible':j.proceso}</td><td>${n(j.trigoProducido)}</td><td>${n(j.hierroProducido)}</td></tr>`).join('')+'</table>'}
