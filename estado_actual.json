@@ -1,12 +1,12 @@
 {
   "aula": {
-    "adminPassword": "scrypt$3b6bb6272062c55046d7814274a44dc3$3a0d0b6064f4c1d48a434f0ffa402253315a750742b6dd36de9fe24dcf73ca6d81799e770cc598c0dfae852381149805fea21217f168b5cc778b28f41154c8b6",
+    "adminPassword": "scrypt$3af460fb4661df9f5d849162f9740460$8949bc2e30957f6f844766d3dc2fdcc6269ebdc4eeaff9be5d2c9441be9fc6ec81d2857d2eb1ac0eed7c05b8cfd6873475c28fa93cf3f07ec9ac4b71ce4b3749",
     "adminId": null,
-    "adminSessionId": "e99e456c-44ff-45bf-bf24-e6ab7f9846e2",
+    "adminSessionId": "9a235b25-f5b2-4993-8b5e-fee3d089fb6b",
     "jugadores": {
       "1371068": {
-        "id": "24316a82-5a5b-40d1-9832-9af7781bd86a",
-        "password": "scrypt$f0feb898ed17806b296611c4a2d3d18e$bbf800eb62f08cb2ba100edbc27436d774c063e414830576a2576e8047add844c8e819b689cdd90a5ff8af31a49a72d4ac27c3d9a8f5ec249a87cceb638e7951",
+        "id": "0231d642-9fdc-4698-8ac5-1c6aa9d39374",
+        "password": "scrypt$f1240bf9bdaf02977762334f2de36f33$a8cfc75a2bbbdac97e7ea63bf3583c99a23f95a8a2ce86928b2cd9a6ef6fe1549335e8bb233819fcfb5ebb87d6b81499523d8a7d5e3c077aff97425096cebd06",
         "nombreVisible": "Victor Pizarro Martiartu",
         "trigo": 1000,
         "hierro": 100,
@@ -19,9 +19,9 @@
         "hierroProd": 0
       },
       "1570433": {
-        "id": "9396f7f4-0884-4952-970c-e631a06ffaf6",
-        "password": "scrypt$019843f591811ee758c5d495ad2a1d0d$ab5dbe2ac7179ed9a487c56752ca914fca56b6823b020665918ad29fcaa50eeb0e35e5e0702a6565d43af9091a261343bfe2ca258593d97155550e58aa54e01f",
-        "nombreVisible": "Alex Justicia Sanchez",
+        "id": "58fc6c41-9b7d-4854-a6d2-166342cfb598",
+        "password": "scrypt$17aa9f0cd888dc523579dfd4c3c73c6c$b36dec23278206652fa47f00edded86c99f38895491b39a8d082040f3c5a26187d16c60aa6f7a9f0f581594215352815bec9cfe52149e6666808975d625ca835",
+        "nombreVisible": "alex Justicia Sanchez",
         "trigo": 1000,
         "hierro": 100,
         "entregas": 0,
@@ -33,8 +33,8 @@
         "hierroProd": 0
       },
       "1667791": {
-        "id": "0aa3539f-aada-4442-adb1-10d4697681c5",
-        "password": "scrypt$2b95ad3018d84e8455fcbee0a1600693$40f624092f020f9c465a004507b737c2d24555ad13e192c8cd10d33633130ec4e0db1ddcd2d87d2c963d87feb8052c0ee29ef943ee4ebddb4bab33f536689505",
+        "id": "b2e8e203-2b98-4f97-b727-85d650be020f",
+        "password": "scrypt$00d7e7ce7f0cd47151269e3ffdc9cd73$5db7654a2e04f5edc4210a2584973455266995f59fd485b0f8d310d373d2b5345c92614f6a90c0eea772f336a77992f296e5b39ab5121259fbf9c20d18144646",
         "nombreVisible": "Kevin Daniel Hernandez Zamora",
         "trigo": 1000,
         "hierro": 100,
@@ -47,8 +47,8 @@
         "hierroProd": 0
       },
       "1708827": {
-        "id": "6031cd0a-5cae-41cc-8de3-7af63a05747d",
-        "password": "scrypt$f75e65a3db559b308323f30c2c9d1417$2ada79be43aedf48e623cbd48fbd4c068ca7732bc55091873e1830d614a1b30d12cdef1d3aa050876ad79ab3c108cd79a189f1f8f864f6f7ea4d722b49f561dd",
+        "id": "267a826c-b025-4955-8fda-d870697b1513",
+        "password": "scrypt$4fcaa164cb1f65d2943f9688e926c01b$bf18041fab66f413985d8b25cb736bc1558f82777bd0ecb2fd8de9aa08f703e993e9bfc7c5327d398adab3e5341b5ba241ebd90e9d47e739656a86b2223a4d20",
         "nombreVisible": "Paula Valentina Correa Ortiz",
         "trigo": 1000,
         "hierro": 100,
@@ -61,8 +61,8 @@
         "hierroProd": 0
       },
       "1708892": {
-        "id": "dea7d33c-0810-4f28-8ff1-b8e56389b7d2",
-        "password": "scrypt$9d4a94259b93d3fdb9bea390f3c2b84f$c9fec3514ec1855943f3180def455eb25f80315707f4cc45e1be99280197afc0d2fe7f7529dccd7f41c751123cef83d6a0753504ac8339a1f70f611f1ed0fe2f",
+        "id": "c66ff8d2-c9ac-448c-bf34-4c56e206dd31",
+        "password": "scrypt$a179db68704ce36d718c05b4d8882032$f611e6daeba425181adc560eb3fda251bca882c98fb27c6a467f68458961c416d5f115dd0111c6713014d276305e491ed8da0689c7ca1f6d9f3dc3cbab986a42",
         "nombreVisible": "Sebastian Parapar Restovic",
         "trigo": 1000,
         "hierro": 100,
@@ -75,8 +75,8 @@
         "hierroProd": 0
       },
       "1713979": {
-        "id": "8761b6c6-55ef-4879-9b09-ccc4c40e8364",
-        "password": "scrypt$883b22daeb07ca9e9e7c7722414ceced$2f40bc2f689e2b3b38f12ca50d788f61673d18af61fae604a03f8abf831beb5b62a409ee4e08e0d924dd9f19da6250391b4e5f9ca1d9ac3ce9aed3608d707718",
+        "id": "94596697-fb6a-4b7a-87f2-99ef46767f55",
+        "password": "scrypt$779d891d9a82ed11fa553e6b70b38e4a$2eb7ac1f41a7f89bd877534df87c8fc3757c3d93dd977a21c565e38b4721ebb2e44a9c258ef3db0d1da5bac5fd9fc61e1bb221ffaecdcf83d3c7564dccee01bd",
         "nombreVisible": "Jose Nelson Maldonado Agama",
         "trigo": 1000,
         "hierro": 100,
@@ -89,8 +89,8 @@
         "hierroProd": 0
       },
       "1746709": {
-        "id": "72b5f49b-2818-444f-bd7f-54a052dbb34c",
-        "password": "scrypt$ba561a15c1bfc0ea9c649d6bab2bcf53$54543b644ff276300032c9150c8d6d67656c5673f79a220f7cfcd4a77243810da8f91ae08bd1cec7071c0cec0b03ba5e54a4a90f294af7fc0ca2fe06c09fa2f2",
+        "id": "1eb27f61-642e-4d74-9529-f75a9867fab6",
+        "password": "scrypt$8f22caa85a7e5aaf7d872291f9d08913$b745f67a3a7656bff9d02a6ce3862095b34e5418aea813460c2dffe0d8fb86d8d2dd1b21c36150d14c65d0644a54a4ae55ea5feb35d6e59d78d4a14a3b38265b",
         "nombreVisible": "Karla Aviles Baena",
         "trigo": 1000,
         "hierro": 100,
@@ -103,8 +103,8 @@
         "hierroProd": 0
       },
       "1747757": {
-        "id": "9b60b2ae-026b-49b9-9207-182d548286e2",
-        "password": "scrypt$cafbfc860aedd7190a40fd933b33f7cc$50037622db2cf1e2df7184d3fc263534b1b80d910369ea861cd11e2062d0e6d973f0896dc191d5649e9a7baa04ea3f8d546bc5bec89e7687fad6dadb73f45b34",
+        "id": "3d5c1bdf-1297-422e-ae37-d411b9b2ee28",
+        "password": "scrypt$6337b53a64250b3f3f6a74b4a43b6bf8$71a8b41805934261da4f12fb818993a354df4abdf48cc229b56de0730a58b8d2bf80765ada4d938f519a1cc9ea4cd3e329cee921a7c0329644b41ffba259d4f5",
         "nombreVisible": "Ming Lin",
         "trigo": 1000,
         "hierro": 100,
@@ -117,8 +117,8 @@
         "hierroProd": 0
       },
       "1747890": {
-        "id": "f656ca54-ebb5-4918-ba50-bf3740a8dd02",
-        "password": "scrypt$bf972dd812be3959eeff794ff554be62$3c535013d5784e6fa75f73c16d864875e51096ff17b457b80495e2913a798fcb179204d1d066b5505002d60451fc2c14f35fe6504c4afd9db76460d2fed40a03",
+        "id": "100fb300-1ba4-43e9-b888-2f470f370226",
+        "password": "scrypt$6f4b6e70acb25c80d3d08493036f5974$6a58f69bbea2e8143243cdbc8b74f49685ee95320fb9abdac67f730e5d3501a7dc76308f9995800788bb5cbd67215c6375e8e4f26bf6ba9eb6e913a8b8feb683",
         "nombreVisible": "Natalia Cruz Castro",
         "trigo": 1000,
         "hierro": 100,
@@ -131,8 +131,8 @@
         "hierroProd": 0
       },
       "1750040": {
-        "id": "f1f31284-0281-4ceb-802a-6a4c3971e0a9",
-        "password": "scrypt$9c22211705ead174f713ea231ada35f9$903605dc344a81330aa684c8d157f534b86d60ad237382c1c8a80c302b157a62bf3ed8b558a2fb746d8629c3586f9085d18d50a2515beb09b8a22779ce886f85",
+        "id": "2dfc5392-03d6-4624-8c55-11757ea39f8f",
+        "password": "scrypt$c98dc69a24a096e48fff833c003ea88a$8efe7a3fe9aece255ed948a307dd4c3a2d94f8ca2a3f0fd363d4c6fcd33c14f5cba86c67e76b01cd9dd1c768fea00f31e239487bad881bb5d59ca77fbfc87995",
         "nombreVisible": "Joan Galera Segura",
         "trigo": 1000,
         "hierro": 100,
@@ -145,8 +145,8 @@
         "hierroProd": 0
       },
       "1751222": {
-        "id": "92d1b2d1-c3b5-40fd-9665-47e4cb2b4675",
-        "password": "scrypt$c621eea5a3f6e8356d54234e0aa50c27$bdb2527a0d1b15a3bfd2042443e5f989c0b7910b36e57866837ef1a4a5535f3635155a9bd79e523403fb6f72cb762421d8b553b9eaef3c05f2dd0594de8f2d3e",
+        "id": "00d46b92-5711-4a93-9fa8-0e95862293df",
+        "password": "scrypt$e45c58d6576a2923b6576981bf5fc775$5b3c8ae1f44825c17f264d89559b19b40755e68880882ef069ed519b65b94015e61fc1f6c2acf8187e2a78052b2216be2c74ae32d9f20f32ffe64a2b73bbfa33",
         "nombreVisible": "Arnau Castillo Gasco",
         "trigo": 1000,
         "hierro": 100,
@@ -159,8 +159,8 @@
         "hierroProd": 0
       },
       "1751774": {
-        "id": "42b74ca4-dbb7-4fe6-a8df-c24a9a2b024b",
-        "password": "scrypt$aeed3e0ff80551213a0bc4acb7202c34$0602230d609edf0c146f9ee896d5f788d7dc8bf0f120acc05fbaecb10c3fb7e78396b7e8b44ceb9007ab1df0beda26f35caa90833fe5abc9ebde286f5c339ace",
+        "id": "41808847-5b12-48ad-a40a-00a5eaaa1fc7",
+        "password": "scrypt$aa1c7482f79b8b843ebd82d7f9f8199e$a002e4e6de4461186ad59f0da854745ed7162108ef822a9583366264ac22243564153484e253fade3273c6e8dd766c9eac53e0b44c63ce643563fa0678b4f3ed",
         "nombreVisible": "Huiqin Ye",
         "trigo": 1000,
         "hierro": 100,
@@ -173,8 +173,8 @@
         "hierroProd": 0
       },
       "1755201": {
-        "id": "f8cd4b18-3c48-4109-860b-95fbb9fe4d3f",
-        "password": "scrypt$76bf37eb4783bb3d7e8951da018b9b1d$171154d144f418d2b390d392f82a212e78375624f7b04fe57ce44eedd7a4a75435f0cc3482119a199c6765aeb60e62241c08178920625e49475f33805fb14b88",
+        "id": "42ae7995-2a96-4318-a2d4-44533213e417",
+        "password": "scrypt$911f5e8b958699d66c8475f8dde43038$53922f021cbe7fec4e5dc0dbc6e5d83e5de58a2093efa0a8598a388ee71da6aaa0a0011cc11d5e101bbf12ea47c3ac7d90cbd0ee2a8f04488c2f7fd00f7b1243",
         "nombreVisible": "Pau Freixa Guitart",
         "trigo": 1000,
         "hierro": 100,
@@ -187,8 +187,8 @@
         "hierroProd": 0
       },
       "1759074": {
-        "id": "c34992e7-2ee5-4bef-a79e-dce328dd7ca5",
-        "password": "scrypt$24fcfc75d21fa5284b52366b80330ba8$f1e5ed88d0689d532ad401c7c02bcdbc20941819b8fdc445c8022516e1b9902881d5744d039ed3e8147012b86fc72fe56b457c94d6e33bd95f8be754978a4d62",
+        "id": "981b30de-36d6-4009-9fb0-131586fff4ac",
+        "password": "scrypt$47e7f1247f3704dca928740eea7da4e2$a5e095865c7c2c4d25de3d96b96f2ac2f06f81f0b98ea365d430c204be22b308fb88375cf8d2b6ce10a756d51e58694647e3eddf71509a4cc7110a68549099d9",
         "nombreVisible": "Iratxe Vazquez Lopez",
         "trigo": 1000,
         "hierro": 100,
@@ -201,8 +201,8 @@
         "hierroProd": 0
       },
       "1777092": {
-        "id": "8ea15279-d6f4-4f06-9093-982309e46132",
-        "password": "scrypt$8356bc1a702e186013e06d3c8d989d79$6b07b7e3510f327148fa5a482af58d4768c4202d33ad2f52dcbed928336a6cd699cd102b1a50d6e2f58f68860a05f6f4c0b5a267532fc86a24c01e7cef6ef425",
+        "id": "12a25245-a1a2-4592-893f-d1170fd64f5b",
+        "password": "scrypt$4425c48e94166b8cf6a049a64da37d7f$36cda67f62a02f89f0088c63ef109b5456d47390d6c195e2d32857a7a624b514e1eb18a93abd8e3d2da28fb9053d083a80c09496c175503d8a3fc39f6afe9bcd",
         "nombreVisible": "Anas Bouabdellah El Yamani",
         "trigo": 1000,
         "hierro": 100,
@@ -215,8 +215,8 @@
         "hierroProd": 0
       },
       "1789140": {
-        "id": "42ba6006-9412-40bf-b817-149afec51b61",
-        "password": "scrypt$b230e2ca8370cd77d7d3bcba2be5fd14$8a46c2ade38a20da43a2bb9eda2812519e7b36ab15aae1cd3feb7abbda863ba5ddf8688e09bba81604570e6c232aaeb5437260a0c339b7ae7ce13cc533c84c84",
+        "id": "25ed689c-17fd-478c-84da-254a60c9f8e0",
+        "password": "scrypt$3d41deeb6cbea9a411a3b13ec7af48d5$76df438309cd18ec1bb1d4152ff8e66632083f2f32475d5f3a8550d5541bd4b4a40e0111232ea7690eeb5153d18924d1c959999318900a60e70459953bc27a8b",
         "nombreVisible": "Adrian Galvez Burgales",
         "trigo": 1000,
         "hierro": 100,
@@ -229,8 +229,8 @@
         "hierroProd": 0
       },
       "1789185": {
-        "id": "ec96abe8-549e-4f29-bcf6-dbcd3a81648c",
-        "password": "scrypt$51930d01ecb9bb59a44bf099007aa1a7$8cecc23d5f42a99b9fed5ec0a9864d8cd1e317bcd43eef5c87a6bc6e3c92eca8086bce6c80b0a733e183485180629b7c30385d58ad8f0e47e27374ced6ec6e2b",
+        "id": "a1bd02f9-faac-4c1a-bf3f-1d90038f8d22",
+        "password": "scrypt$79ed3d71f9e4eebfae414f9616a69e2d$eb9a8ba96935f3f77ea582e89cf8c36ac2b415d23f0fc6170e4609dd10b1f0703c8bbc86d42da07fa74c4e9bc7650393f6a5b0bc8f654564aefb5a879486a389",
         "nombreVisible": "Aiman Jimenez El Aguili",
         "trigo": 1000,
         "hierro": 100,
@@ -243,8 +243,8 @@
         "hierroProd": 0
       },
       "1789831": {
-        "id": "67ab2649-fb08-4c7d-8a78-4d6ba39d3959",
-        "password": "scrypt$f5833aeb2b10deeff1f90ba565dfe73b$190cada5693eecdbf3a05784342b229b2813e9815eef2c024d2ef252936224e81338ee44f73d0ec9b483f1ef9e9d0c0f6e042fd9f85521bff9ac3425f6803dee",
+        "id": "6356e6ec-063e-4a5c-8df1-d2181e84a940",
+        "password": "scrypt$e08e6ce7f3c7d835ffe272a63c63cacc$6cf78381edc559d89ced41f1f9d6cc8d3e5bb8a0f41a5d7f702126d8e6fee6759a33ee2e813713bf8b787cd908a50275154b54801d4dde04dfab9053edb8d23d",
         "nombreVisible": "Ayoub El Khalfi Bouhali",
         "trigo": 1000,
         "hierro": 100,
@@ -257,8 +257,8 @@
         "hierroProd": 0
       },
       "1790255": {
-        "id": "c5ca0838-9b77-4cf9-8ae2-045ce0ac807c",
-        "password": "scrypt$3e2e7b1855646c1e284cee1e376d8144$2ad498c6c67a2ae42b43e712e601cbabf0d78f91544bc90f70be5053a971da56afb14d85d014eae732b57e92f7b7d73950b69b3968d9d8bf395d5fa0717aff7a",
+        "id": "7a4cc882-0cf6-44ff-911f-f8e49b8fe934",
+        "password": "scrypt$ac1eb935c2c26fff82d74860d033f313$4d08abb8f0b6873bb61bcc962f414c63489b578d3927c7f4b80972563bf1ef3ecd0ed86fefce643a44f663107d9e23849e7a70e73596538aef1d5fbb0e05b5fa",
         "nombreVisible": "Daniel Frias Bonachera",
         "trigo": 1000,
         "hierro": 100,
@@ -271,8 +271,8 @@
         "hierroProd": 0
       },
       "1790607": {
-        "id": "fcf9b966-01a4-4a9f-8d2c-9a1021bffdab",
-        "password": "scrypt$b25c45f1e1aea41c90ba7d5f4c740a6c$301b673832c56dfc16752b39b2c0acc4250178cb69df3de9e876daec4a74ff03fab24ae188443a53db1eba0f4588620a7e994210e45f9c20339e15831c1bffbe",
+        "id": "82222988-8370-4a25-84b3-457ab8a197fd",
+        "password": "scrypt$54c50595f5c9f8f4b7b3455780fdf68d$20a579f7732f050c08e01369b264737dd73e63f55d16148c836841b891fd8b29ddf55ee5d3d00a788230d81ac0d8c063968e88589fca04fe6ef91cc5f8ae7317",
         "nombreVisible": "Fabrizio Conde Castro",
         "trigo": 1000,
         "hierro": 100,
@@ -285,8 +285,8 @@
         "hierroProd": 0
       },
       "1790799": {
-        "id": "244a7eb5-f4bd-43c9-ba0b-e35d7ca18f3e",
-        "password": "scrypt$844c0d17612fa7a2fb24e95fe5520ff5$46c3213aebc25f648b21e2bc14d9d142aa1c0fc7b850cf23daab1c2b31db098a29db70c157dc4161eb74100103677e0a8a2c2821d5d114b1f3c9abb36666531f",
+        "id": "ccfe39f9-2bfe-44c8-a635-fab50c116442",
+        "password": "scrypt$071b360d05d9464b68cedb6165b9fd3b$9906755d890b9f5b21886a5e7d2869d37435a17ff0f85092fb4411bf4f35210e6e00fc32ad3a0c798b8fb64cbc5a9b875004f8cf5e0cc7b42adccc1268178722",
         "nombreVisible": "Hasley Yeimelis Peguero Mota",
         "trigo": 1000,
         "hierro": 100,
@@ -299,8 +299,8 @@
         "hierroProd": 0
       },
       "1791506": {
-        "id": "1379a7a6-ddfd-42e1-80c6-2e009ad21dc8",
-        "password": "scrypt$56944b035bc9806e929f5d89f5c9bfe2$5062dfb538b91f930ac7d14ec8dd01ba6f30c699acd5af7f2c6c03c3791307c271e3b199a143eaa9d5b24cfd078bfa6129cd4591a7fecbea5433c3347d7bf515",
+        "id": "75fcde70-834f-4fe1-9b23-ed14855c0e69",
+        "password": "scrypt$9c5baa0b83217e8acfce43f37af40675$45b0fd6ec1f5751cb6369730ce3fa5195a768f657244464b99f0f668dde58544fb27a430c42edf4cd0b8d651909758b5e3da064a6b8f357ee59ce056e3d193cb",
         "nombreVisible": "Kiara Quispe Barrientos",
         "trigo": 1000,
         "hierro": 100,
@@ -313,8 +313,8 @@
         "hierroProd": 0
       },
       "1791836": {
-        "id": "8abe2110-9751-4508-89de-73e8e190682c",
-        "password": "scrypt$74941a030965107da2bac34f48b5f202$eadff69baa736468d5f6bdaf9aaf7ec567ac9dffc92af74fc12b1dc28df3ebd36f975daa11ad9f70e6f048fd6432f91f058706bf072d9c4a035835147e862c31",
+        "id": "eb565739-248b-45a1-ad9a-cf84291c1d3e",
+        "password": "scrypt$845d7a369afd69bc13ddc5358c815e65$b81143aebf2985c22c8493961aa7ab7c83f8e6210454c0bd06f309d2ee4d276775c165eff73d46ba737cc361dc031b84dc5f27f19ebea866995159d2ecc33511",
         "nombreVisible": "Luciana Ailen Longo Heredia",
         "trigo": 1000,
         "hierro": 100,
@@ -327,8 +327,8 @@
         "hierroProd": 0
       },
       "1791898": {
-        "id": "2e9dcd81-6e52-41df-ac16-3c04aa1c8414",
-        "password": "scrypt$77752e1c9f50d067baf212220355a954$0a2b3faa0843b7ad3ad27b7c20e0bda9fbb65da5a893969229aa472108f34dca246e132f845dfcec9c6324dcbcf01c07aebf0543f1532459e6c01ae9d6c80738",
+        "id": "c93a71fb-543f-4fa2-96e7-7a3450d6fe77",
+        "password": "scrypt$e374950f3cc328dcff0db6fb28b57392$4e1d0f8dccf3b1bde3f3f55485cfabea255d148847e09a57b7ef7ff69532d91dcfe8023c2d88c1586f447012060f3a2a7b37e11ed98cf88413c3868f8a7fd7ef",
         "nombreVisible": "Manuela Sabry Batista Luis",
         "trigo": 1000,
         "hierro": 100,
@@ -341,8 +341,8 @@
         "hierroProd": 0
       },
       "1793255": {
-        "id": "de84e8f5-7138-4e64-9d41-8cf79dc585a5",
-        "password": "scrypt$fc43e29149b691a20e78907f3b38b7d4$276685a0fdd981edd29721e47d849deb7e8d5192537a7344ad6598fbf116673c28f329227190eca5d73c1eaf2b4cf8e070f2ac74f390ab21b42067e3bb898a8d",
+        "id": "47a936ef-e681-4643-a65f-3b7bdc8f1004",
+        "password": "scrypt$dec22d7f33e13180544c210e3dfcf52e$5e62e123dcb747ab33a9d77e2f785094652d89822a54863585bec9de49d770889f70a3083676e9ec3076952bed93f1d05921f7d21ad68b94ccc155a90edc46ca",
         "nombreVisible": "Sabry Manuela Batista Luis",
         "trigo": 1000,
         "hierro": 100,
@@ -355,8 +355,8 @@
         "hierroProd": 0
       },
       "1793484": {
-        "id": "1168db3a-de4b-4864-9186-7c1581a6b107",
-        "password": "scrypt$55fb63936b351841618a3339353df9fc$c39ba7f7bde212e5d875a00e9580bafeb75c8ffd0033d9a3945bd61e01c1f4739924015626655e968623c0e3f1c23b477266341ebc756c5f143512e036a406b4",
+        "id": "172f1d94-467e-492b-b31f-be1064edc580",
+        "password": "scrypt$063385869735f06fc45c80ee971b3b30$faed06de39873edf96df0ebe2ac0b786541dcf7853c68ba2d13b16f3a2d6cb6fd61a0b3d001baa998a75bfd97e86febd2d3d860eb3aa8044ece22df79e03058b",
         "nombreVisible": "Unai Payet Cladellas",
         "trigo": 1000,
         "hierro": 100,
@@ -369,9 +369,9 @@
         "hierroProd": 0
       },
       "1794371": {
-        "id": "2d85f4e8-d349-403d-aa77-433647f12d24",
-        "password": "scrypt$5afe4e5e413e68e9d890dace1787e1c8$e6c904fbde1fb1112f06ccb966bc669e536801b8ffae36debd6cdd31ad4c36e83e35f7fd6303095768147b55abae6f461dda7555d20f492f7066e7e2dc605104",
-        "nombreVisible": "Angeles Rodriguez Fuentes",
+        "id": "4a2cf87d-f35e-4d65-a9b6-17738ac1f8e2",
+        "password": "scrypt$bf193a29ce9c4b00fa70588c57c9c4dc$ee35a02cf943e87ced949c04ce6fefa1a36bc8edeed582e73993bfd79852bf6760da9d03945644d23f48e1cd8683a679b9738bd374bf256c6b6c89060788bab1",
+        "nombreVisible": "angeles Rodriguez Fuentes",
         "trigo": 1000,
         "hierro": 100,
         "entregas": 0,
@@ -383,8 +383,8 @@
         "hierroProd": 0
       },
       "1794538": {
-        "id": "dfd3f859-a9b7-45bb-ad9b-3c07d3f9f7bc",
-        "password": "scrypt$16ac0ef1843da9565dc36d5af0683bf7$84cd5ade636190660636a80ef44649a5f3be90a6cbabd1afa62e754c049b6af9039c968f27fcb9421f466c1dd1ff7242887d345dfd02b63160ad695df17437da",
+        "id": "5438f217-4203-4f1d-91e0-772ac6d8146c",
+        "password": "scrypt$08ca1ea964a72261e0cabeb849e593f0$f6b754dbbdda4f123a8aeeac8c5ab145847bba2b7b81ff0dabc2d605154446eb4f66e0033077d711637512095253ec719811ba84b4ac2d2830519bf232ab9cd3",
         "nombreVisible": "David Morillo Perez",
         "trigo": 1000,
         "hierro": 100,
@@ -397,8 +397,8 @@
         "hierroProd": 0
       },
       "1795444": {
-        "id": "21995f69-6d8a-4e16-9090-c06df7651fcb",
-        "password": "scrypt$603cc3c1ff2e3cc064d2f5c0302652de$5866c6e1cd588fe334b732ea39ebf0bdc17d3db19c72f61d541b3113a0264297d26486413c9ab55c453a5cfa5fc66c3ab017a8de943e2ddd3d587ceb55d13b0a",
+        "id": "ad788149-1b6a-4004-bfc7-1679c158e062",
+        "password": "scrypt$f70181d96fecbd612d336ebfce126768$9a1cd7607aec629bf6d026b16e8f558b1d200d262edc6d7b5a1d8a25506dcacf1542e763e054fb3cd4c4ba1c71b5fa9dd84fc506636a06b716cf574dc3b5a6c7",
         "nombreVisible": "Roc Llados Lozano",
         "trigo": 1000,
         "hierro": 100,
@@ -411,8 +411,8 @@
         "hierroProd": 0
       },
       "1798157": {
-        "id": "5d75e065-fe12-42b0-a95b-0189d7a524c0",
-        "password": "scrypt$f2ee64eb087e1d0c70a36871182b83ff$d403091636ade6decaf8abeabdd9ec2519c9b2f21a8d04dd23cfccd3409f0bac5c3e042cc2afee8e18aea08fc0636fc82cdc1e8b690917c1b84395614e6fcd6b",
+        "id": "9611ec28-dd8f-48d7-83be-fdc0c929d9ac",
+        "password": "scrypt$540d63eb730b2ce6c9e2bf9bfd6efeb8$520ba450e89ff32da3d9c7d2cd016b8d7091fa27fc281e5c7bc8dc7454db4e2947b2fbe9362e1e4d06b144b3454ae853b10ac74bfa0069e12f8e7fbc18db0dec",
         "nombreVisible": "Oriol Feixat Cardero",
         "trigo": 1000,
         "hierro": 100,
@@ -425,8 +425,8 @@
         "hierroProd": 0
       },
       "1798505": {
-        "id": "d1c7d165-8bc5-432b-af40-bb4ca7466898",
-        "password": "scrypt$344e10ff82da43dddbe22d7ff050daf0$aaf6aa6672cab9766ec0361ff53e5a6d11bcd461be88f1f725d81eeab383fec8a670e99aa94b8832058fc2fd4cd587d96c8f601753d93a398ca7517368e0aba6",
+        "id": "2c4584da-727b-4899-b00b-6b92bf10930b",
+        "password": "scrypt$5b424b5d00586a3d224d8a9ca09abaa5$5f7dee9a64b00547d006e686f1154d02af961320ffff9ecb63fa8c16d6aa3099166ac11099b7b56605d5a46391f44fe4adcc702b95b32bfe02fff6a6f2b452bb",
         "nombreVisible": "Unai Rius Vega",
         "trigo": 1000,
         "hierro": 100,
@@ -439,8 +439,8 @@
         "hierroProd": 0
       },
       "1801120": {
-        "id": "694e6f96-3b75-4605-b098-2b1cb7b13bbf",
-        "password": "scrypt$21e53d46ccef5e6aa257e27e2090089c$22ca6ef7ff0eb908cd3c9eb679b4edcad27905bf38efe0f3833b67274eb8ae61ef3a15240b8276b21ba4fe8630ae0e6692d515c330445e14b42f82abe0919c61",
+        "id": "01fd4f58-2024-4f4d-b21a-1b8417606e27",
+        "password": "scrypt$02bdcb046938df51db8f19976e155751$d50fe9a296e69690dc106f37a802d9f65d86524afa5d213fe2f26d290963b362c98024fa68366b42b17535e9e491914205306265830e3a8b1aefe792e4888b3d",
         "nombreVisible": "Heidy Melisa Limas Medina",
         "trigo": 1000,
         "hierro": 100,
@@ -452,23 +452,9 @@
         "trigoProd": 0,
         "hierroProd": 0
       },
-      "1802425": {
-        "id": "91626e79-8cf9-4e37-beed-61b72b1915b6",
-        "password": "scrypt$0003c0e87e6668fd0c539af250af104e$efa9fef21272f9d5bffcf2a1ab850b786233b0f07b83001d967d71877068a883d5faac6feb2ac9d1f1df2c64caee06c86e8f2c0a26b0fc566694f4b17a0481cf",
-        "nombreVisible": "Carlos Puertolas Ferragut",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
       "1802530": {
-        "id": "aa57c87f-4e4f-4e9d-952c-76c282909da8",
-        "password": "scrypt$6be3b0576c645adef20214e5dc6e3257$682702c834ef3fe2610ff56760ad4665d52df3021c068a97fbbd35387e29d60e81bc2dd48a3f9c0b97b29f16d97afc03a4d8176240b5ca1537088c200b489317",
+        "id": "bb2b7c97-2bdc-4413-8b8a-35eb6a807222",
+        "password": "scrypt$ca7c583a26f4a8745d2e4f5d24faeda7$3e42fde00b0f9e0684a693d0972052641ef4e1cebb84180e5d140e3a396eba55a20c03482928ab56f9cea1b8b033a62fa14e1ed830025e658627a97e436c4cd4",
         "nombreVisible": "Keithian Akemi Delgado Molina",
         "trigo": 1000,
         "hierro": 100,
@@ -481,8 +467,8 @@
         "hierroProd": 0
       },
       "1803683": {
-        "id": "659f4b2f-d5cf-4998-aa40-922024d355b5",
-        "password": "scrypt$e5d76e072655a716bf92cf460279c2ec$9def55405003a560a353cec8766d819a44f88d11ac7a235533f73fbb941a1d0dead7688aec7e1209c9a7f07f40d79dd4a0908a10e36d07acb8ca05a42e394800",
+        "id": "c56533ef-53d1-4691-a738-49ff0e956268",
+        "password": "scrypt$4f0f056487f68fef7788014c27fee640$6c44f51d7f714537d60c9ee1404d42225a6e33e32af1a0b51747ee295a0643ac81ffcc5ec432b85c9f12df8b1bb1d1d4bf926457082ee5c20393a9e2cb08121d",
         "nombreVisible": "Abel Nunez Auge",
         "trigo": 1000,
         "hierro": 100,
@@ -495,9 +481,9 @@
         "hierroProd": 0
       },
       "1835174": {
-        "id": "194e9144-d170-4adc-b51a-63c717cf6fc7",
-        "password": "scrypt$e7669f36fc130b96cce43e2f61c32757$0c1622ed9c8b47d8d36e246e4280e953a9b84dca7cb2ddc075851787a7883ee8f6c8d5db32a87bf579e8d78a24b113779a33210df2e1b08eabfbd182df8b582f",
-        "nombreVisible": "Angela Morote Moya",
+        "id": "12f2e3c9-f23d-4399-a16f-1320d3b83fa0",
+        "password": "scrypt$1bbb768f8b1b586086b438031dc8f173$19350153dc1eefb39f4683b9cb57f68083045acad3d5639a7dfc7819602a7bb4cd86958a4f8b04207c42dd0f27c49dd8695ff845ffa9c1cf2e845f07ec5336ac",
+        "nombreVisible": "angela Morote Moya",
         "trigo": 1000,
         "hierro": 100,
         "entregas": 0,
@@ -509,8 +495,8 @@
         "hierroProd": 0
       },
       "1835238": {
-        "id": "2249f726-f1e6-4b05-b50e-a26c33f32222",
-        "password": "scrypt$fa99fce9e14df46944b494b330c55c08$a654156bd1f194070adfa5190fd51352a39a5572940a3792d4d6827bf6fcc6edd62d37778f85a2e0bc56e86ad036ecb307d7ed82a534fa3239f18426dfe1a7e6",
+        "id": "dddecbb8-7824-4a0d-90e0-54671e1b99d8",
+        "password": "scrypt$9e07c4a8541626fb9dc653325be35eeb$75aaff7e5fd3efafc490fb6a775ec08020d555622c9f01a23bf36ead2977173a227ee576983b04325ca3a3c1993b0854eac3c2d93cdebae4b5dedcd7f31795f0",
         "nombreVisible": "Antonio Ortiz Folk",
         "trigo": 1000,
         "hierro": 100,
@@ -523,8 +509,8 @@
         "hierroProd": 0
       },
       "1835308": {
-        "id": "a91ae2af-8a87-4360-9608-11343fccc772",
-        "password": "scrypt$05ed8f93a7910b1740dd01fb3e228fb0$f11bef9e1351c58ac804902cc8e3e629af74daa201618ec742abb17d6b4b42089ac0bcbcfc5ed49293ccdc76ab48f190527ccc23ca49806948471a50794feca4",
+        "id": "c201599b-3ca2-4b15-b8c3-bf32f47cefa0",
+        "password": "scrypt$5ab2b8a5b2e63408ca713640534fdb4e$56ed5c1e22a9fa2520f258c4c345797bd9ccaf0fb50f827766d80d1258225dd657e5bbd753d5b8ee0458ba414c8487041cb8f643937126c4add1b76c9b58a007",
         "nombreVisible": "Arnau Aguilar Basets",
         "trigo": 1000,
         "hierro": 100,
@@ -537,8 +523,8 @@
         "hierroProd": 0
       },
       "1835556": {
-        "id": "4354fad3-e066-448f-8113-032b7e3b1ff1",
-        "password": "scrypt$c1203eb91bb0a023cce8ed82d796acd6$f5035580b45ddcdce6a6feae5604d33f43211840ceddca58f59a6171e617f023c913044f744319705dc5e5bbdb2e8cc77254af47c8d7f8c194ea5eeedf552c9a",
+        "id": "1d7b1fe9-f1a5-4450-ba60-08b9807fd2df",
+        "password": "scrypt$9502d15f70a5f03b6a2a85c4a532047f$7da0def0cbc59d44bd3b3d002302aac1ad793f666de9608bf52c11fda6f0e8de539111a4633bf4f958a773c2cff74307dd55a798d81a46c1cc20d7f0a2a3dc89",
         "nombreVisible": "Carla Bellisco Granero",
         "trigo": 1000,
         "hierro": 100,
@@ -551,8 +537,8 @@
         "hierroProd": 0
       },
       "1835756": {
-        "id": "5753b16e-6d77-4300-a620-b7fa924788f2",
-        "password": "scrypt$59701fda02a225cd9597258f733b8e38$00cd7870156941abeaf94045c52853ab0b2cf4429e6b9421f470cc4753c3ee5810a4e52efb639842198bd9e65784b52707506a4f26a9f75bc8d7fe1dc88905c8",
+        "id": "c47e4d52-6ee1-4bfc-8d7d-4be6b31580c4",
+        "password": "scrypt$a2c9716ed022bc3bbb2283706f6cc557$39693331764771ee696cba3deec6dde13bf0d78c6fabb4471a9a599b0703860af298b2a8f6de78964b6b1595e1b156577725d111a4adec5f6a31a7e1c702794a",
         "nombreVisible": "Claudia Rodriguez Ramos",
         "trigo": 1000,
         "hierro": 100,
@@ -565,8 +551,8 @@
         "hierroProd": 0
       },
       "1835846": {
-        "id": "c04c1c9c-3109-4d8f-b883-65dd5fdaa30d",
-        "password": "scrypt$b037d9b13d585c6923ebe3bac5c5e2fd$eb0e8a174be02b5314f19e0467b0a37208c79f3e5d1548aad0e254791393dac3207bbff509c5c8187e48be37e1bd3a4a0b8fe3a1ef9a539c70b826d11a001d9f",
+        "id": "c895965b-84bf-47ea-b00c-2aa8d2986f6e",
+        "password": "scrypt$27bacee4a9a3ebcf86376bb141c67b8f$0e1ee0cd2f38ae4ded33a9cb2dc3aa97656f6a85390bf2e66e68770c053d554c98d362cb51b259e0dc3933706dd8c0ca377e67460e05da46dd8bf2dce4830aa9",
         "nombreVisible": "Daniel Camargo Rodriguez",
         "trigo": 1000,
         "hierro": 100,
@@ -579,8 +565,8 @@
         "hierroProd": 0
       },
       "1835852": {
-        "id": "ec3ce1e5-6892-47fa-9d41-fead7bf301db",
-        "password": "scrypt$0325a572c42d8c27b018a4e78b89b589$9e43e799cb635d9365a4d3c8c9d3d04f7d2b719f3fb321fc6c6042e2d853ec871e5338da1f00584cf53ccb1c325faedd8b4b32146664dcde448ac276c9b705a2",
+        "id": "fb663aeb-1410-414b-a1a1-006f5c463a43",
+        "password": "scrypt$32fa65eee4f2f39d7685c0a9c4894f37$109622951c4206968b4825a7089d4787a73be7fe6c328e274eeae438c05713f9e8e27ef95c8edff4beae2a4eb8f37d2790fb08ea1283239f68d45a79f796438b",
         "nombreVisible": "Daniel Garcia Sanchez",
         "trigo": 1000,
         "hierro": 100,
@@ -592,24 +578,10 @@
         "trigoProd": 0,
         "hierroProd": 0
       },
-      "1835982": {
-        "id": "916567fe-bc3a-4b28-82a5-29dad48ffd04",
-        "password": "scrypt$a5be6c5cbb6a7409255df14719839379$4a2509c416aa8054d1ac9ec62a3ddb54dde90400f964465f07c47587ad75198674927004dc06194214178381e56355fabf3e80098894438931500a04e72b6718",
-        "nombreVisible": "Edson Marcelo Cordova Cevallos",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
       "1836127": {
-        "id": "2c21970e-912a-4fd0-84b2-31cba0805ade",
-        "password": "scrypt$6ca4c4fbbd34f7c06890ba531e3e775d$e9fb7270165af71bf598f68231248b21f0b72a2abeaa49d60983a1d1fd39b16094be2ff1d4cfd50573381a0181f238d170a27426c0f0c8fc1016d3f29a3e1a63",
-        "nombreVisible": "Eric Osuna Fernandez",
+        "id": "f8fb7974-c6b3-4b99-be44-5e2a70130fc6",
+        "password": "scrypt$617f4184506afca4bc76bbba686777fe$d2f50c5f3808b62b358142587e8180c8ed3c0c6e811a81f8e16def03403543cc4a08d6674c26e3987a4b46c446a09ec246dee360df4fecc6b5b566ba10dcb95e",
+        "nombreVisible": "eric Osuna Fernandez",
         "trigo": 1000,
         "hierro": 100,
         "entregas": 0,
@@ -621,8 +593,8 @@
         "hierroProd": 0
       },
       "1836198": {
-        "id": "931d0d40-3b75-47fc-9332-82b5fc3414ea",
-        "password": "scrypt$e5e22222e24761f7e953ca63ff584c1e$effd7606965d1872c572043667535bc088c108463e3dcabf8101499ccf6c756005559f51c4d8561e06c4d772698cd4377fd8955400ce6712bd4050e89a815d6a",
+        "id": "db837477-826a-4a78-9f7f-6674e4003bfd",
+        "password": "scrypt$169ae01f6e808daf5c6cf258f4838240$f3f969e6dc8de091db63d2967c47fcf2e28016bb0dc1203f85314e945f978015dabbfc7652d83f2a8231054a3c84bb60eabb0b3757e471f8264760bd35c6b929",
         "nombreVisible": "Fabricio Lola Justiniano",
         "trigo": 1000,
         "hierro": 100,
@@ -635,8 +607,8 @@
         "hierroProd": 0
       },
       "1836315": {
-        "id": "3d2675fb-7b04-48cf-8f3e-ced9325ea3ae",
-        "password": "scrypt$f3980e629f5cf431ee829cba16529dfa$c59a627844c78f925b856ed2d38a2b902f068be1a7c4fc5a2ea167073eb473bd4bd65d3d81d41b4b333e0951538b856c951f7b242836b42f95d3c4d966e342ee",
+        "id": "cb98bd27-9020-467d-8a75-b42cc375d10e",
+        "password": "scrypt$6d3d31c46e55796fd19678a9ce4ec9e5$2c59146565daf2bca1c0084169504988adbd7535ba427e90f2e0ed4c2125b2c3876086fe75a91013a6167852b515beac672e43f46d51398409e921fb509f50e6",
         "nombreVisible": "Gisela Andres Subirats",
         "trigo": 1000,
         "hierro": 100,
@@ -649,8 +621,8 @@
         "hierroProd": 0
       },
       "1836529": {
-        "id": "68e6b747-a245-4ef3-aca2-c5c983f2a034",
-        "password": "scrypt$dd938e79f3346b00e0a0a4c252669f68$2358d10e8f01175b32416f07da7c555170cdd593a9dfcb6d6724bb4b47a0a73ebd00fb365a115993717be0d801ab65a9fcb00f67a65ac809399633244261f047",
+        "id": "16cd2982-ec1b-4ce1-be01-bd01a4c7ad82",
+        "password": "scrypt$d5b5c16e066b386393b14672cd12425e$82cca20b097c47342226cb5015e8d6647568512f46d6c48550f20acc2a99abefb2d1946ba416b99bab3cfeaac5b6bdd9c506845bc46e9b86cd98433d7da14b56",
         "nombreVisible": "Irene Lopez Salgado",
         "trigo": 1000,
         "hierro": 100,
@@ -663,8 +635,8 @@
         "hierroProd": 0
       },
       "1836879": {
-        "id": "402cea9c-684e-4d3c-b771-64211255dcdd",
-        "password": "scrypt$2b63d777ed4218e0c17f42e125dc2e6b$a11c44d666cfad76a60d1207c0f42c15d87384490e33b6b5ea6bf84695bd8d532eb2bb0514817005debc7c41fd9a2f9984e01a10d97e19968e32a7f09b8e3d5b",
+        "id": "57140b13-ab94-46cd-90bf-d5bb6bc5b503",
+        "password": "scrypt$3cd78793b16a835ff3aee014bd54745e$600159fc18a140acb75e7e978678566baab60ee949ee2880a20a937489acf855083bd40399ed63eae1d2fb87c7fcff54ec4e812110808c54ca437ef4a7fb3bdc",
         "nombreVisible": "Johana Mateo Rodriguez",
         "trigo": 1000,
         "hierro": 100,
@@ -677,8 +649,8 @@
         "hierroProd": 0
       },
       "1837174": {
-        "id": "6afb2cb4-d0e1-4759-8f3c-3d3291942967",
-        "password": "scrypt$5decf8db3764e5f59f551df4f958e2e4$e7c8302e02431c3d8d2e6caf0d6af064ec5f52f74c7583941666c5f957c9a4dc568d06460ce3c6a2e15b10cbec9b487586307f0204170070f388b15336c72929",
+        "id": "aff3069e-df4b-409e-ac88-2b48bad0178d",
+        "password": "scrypt$c70d393fd7944ea9239c6028e7936c2e$cc75ede5273a208ff77418ad90ddd92bc21b9f882a51206e5ec1317a84024362dc12b61caae9d849f019efe9d35e8c6fa47def933fc559e4193dee3a83dc8223",
         "nombreVisible": "Laia Morales Garcia",
         "trigo": 1000,
         "hierro": 100,
@@ -691,8 +663,8 @@
         "hierroProd": 0
       },
       "1837258": {
-        "id": "bc79a91f-d584-4349-baf8-3f137d1b6938",
-        "password": "scrypt$42d7efe7e86aa0599f41a34ad822e090$ad94ee368ea566e6f327461ffcf0c1545d756acff1576b78e79d0e5d8b8bea262efc65b76f0feb03cf3183f8d9426e26a43f87bc7378af541adab172a9bddf20",
+        "id": "dc228e27-d581-49dd-94fc-41314d08415c",
+        "password": "scrypt$26150c3f33ff35ed93dd2cb4ac17b4a5$cacfc82db2ddd6dedb23f80901696a68e5995cd9a23765b00ea3ee2c842e975153dfcbbccf1b9e14f75a77bbfac3e73c1b2973dd08e0220fde478c745844c481",
         "nombreVisible": "Laura Lopez Cuadrado",
         "trigo": 1000,
         "hierro": 100,
@@ -705,8 +677,8 @@
         "hierroProd": 0
       },
       "1837345": {
-        "id": "ef431244-5927-4777-a9b7-7e323dc76979",
-        "password": "scrypt$ecfb3ecb4cea1a9f06a43256d5082625$85a371504e428cab52658e95c0f9ec5b7704a82b34bde1336e546ae60e55871f28e0ecfc0ce55f5b76ccc3b4fc7093fcad00afe8863216634717b3457a433ba1",
+        "id": "61c2a482-ad2c-4f5c-9134-5324b3c5a527",
+        "password": "scrypt$1f129c9eaedafa288a994265279fef0e$4a251a388cdee46924af1ec5b0e9595ab25b1e43dbee78ce9d3b6e0a4d958d0014090e52dab653b1384b0fa8165868b4efbdfa3d566650bdddac20d7acf8dc54",
         "nombreVisible": "Lizbeth Margarita Gejano Zanabria",
         "trigo": 1000,
         "hierro": 100,
@@ -719,8 +691,8 @@
         "hierroProd": 0
       },
       "1837558": {
-        "id": "68a15e58-6a35-4969-b981-ef752275c09e",
-        "password": "scrypt$182350ff62d85b5db20122835958b6cc$42ac2fc6571f8ca4d336f9bd44ebf4cd392803aaea20798a5a61609f1ddfe5b2c375252f37a5e073884d3de16120c756790a55a63dab7b20ab8a8cc914d0eec8",
+        "id": "83ac3a1a-31e5-4eba-8ca9-a55710fe291c",
+        "password": "scrypt$31f319f911945d4b994319f8c9433ee7$0a530553f7116c0eaebde7d8b9b762d4d5c901fc058985679e2fcf8e3a27a508caf82bee382b85d0e5abda6b74bb9b408cb2fd0f24a5c9325c3dc55e1d1107dc",
         "nombreVisible": "Marc Gomez Martinez",
         "trigo": 1000,
         "hierro": 100,
@@ -733,8 +705,8 @@
         "hierroProd": 0
       },
       "1837848": {
-        "id": "60bafc6c-1f78-4de7-a99f-640c67b166eb",
-        "password": "scrypt$e458cd5b7241372984166d0ffa30b5fb$1206150a213e094b4f88704b6937113677bed38c9ae43cc8e0593f4c766260bbf1b2d547be531a53d2adecf11f00d1467636483396a207e63c8b05007680ceb4",
+        "id": "f6190a59-d1fe-4044-9e22-7e3b9e8b585a",
+        "password": "scrypt$d611433a9ae2288ea5027e52704946a4$b267fc315eb494a0b94ad0372a5d7c36e4d95fd88d96411ebc15f966fc578608a8016706a852abe367002843252c77d242b462db51e77ec784c99fdcee8c1f8e",
         "nombreVisible": "Marta Martin Rodriguez",
         "trigo": 1000,
         "hierro": 100,
@@ -747,8 +719,8 @@
         "hierroProd": 0
       },
       "1838117": {
-        "id": "10272879-d4e8-4494-8b54-0e7878e5d9cf",
-        "password": "scrypt$3d0ca1a9c98936e1775be2a8c7cfc8d1$28a6695b8c065e3497170bcf3eb69378088f19b50b2f44c37aeeef5a0599987d4f5eee82bc89a6424da82d7c6376a87dfb0f34b88a1cb19b837f06ef318901b5",
+        "id": "68a0f76a-15b8-4081-ae39-5b05931f0c97",
+        "password": "scrypt$ccaa09cb3761a4e5131a9638abdf0b13$2d74f122ae3ab4aa5b61787cfcbc8d19a1334c7ba55f78c38a101f8f27eec92b03ba9eaa3bf27395917cb6403aa73f0ab23f8e4a46d81e059e1ad0412eca6b11",
         "nombreVisible": "Mohamed Rayane Chrigui Zguerdeh",
         "trigo": 1000,
         "hierro": 100,
@@ -761,8 +733,8 @@
         "hierroProd": 0
       },
       "1838408": {
-        "id": "f4cf3435-1cf7-4e61-afbc-20ad2975ea37",
-        "password": "scrypt$73b033a2076c17738d165ca53c5367cc$69c7c76ee1eefcabf1e7d8d86331111e4c1a666f9428816c45651199e22ebdcc5298ce1678f188a5e7de509d5d231ad9b5a4e83a7448b7955726cb1f817486c1",
+        "id": "f6afb735-740c-4874-8e33-68f9c53b4017",
+        "password": "scrypt$0ce18349b74e139c000b63730cf1a1ea$0e0b17f5ccc4d2992fe11ef40b992b8748681695c124e90b2cec01b8b2d9ca274bdeb7c1b2968956e84db2e2216e446e6d073127aaa9175ff9df27d7f770d289",
         "nombreVisible": "Olaf Castilla Fius",
         "trigo": 1000,
         "hierro": 100,
@@ -775,8 +747,8 @@
         "hierroProd": 0
       },
       "1838871": {
-        "id": "7c39e611-8a7b-4efe-8ad6-76a0ef8f105d",
-        "password": "scrypt$cc1ecf7afd657887f1d7a6e75307e89a$92539f1ab06665c2679508add7ee1267a0dbd7cf15a2a7c3d854dff9a0ad48d82061da6288c9587b336038ae87aaa49c96086ae6a67b9294d5fac58a1c473eb0",
+        "id": "80c47d07-aedf-49eb-9597-8886709c6037",
+        "password": "scrypt$cfcc1723094c8ee2041c3a1a6af3809f$dac2167f74f8f832ef18df1505c669c32a2036e545c9b1ddc572a2e3338dcc542057c4b0ad9f2c4db2c8d4f37aab2556f5f96f8a154dec1eab98f85b82cc927d",
         "nombreVisible": "Ruben Torres Ramos",
         "trigo": 1000,
         "hierro": 100,
@@ -789,8 +761,8 @@
         "hierroProd": 0
       },
       "1839022": {
-        "id": "d91c8de5-2c2d-485a-86be-427777e1b7a0",
-        "password": "scrypt$0a676addd01e67fd86ed6f2ece4f327e$8d1b894839e850320a921f13505fba4f78856548d150345d3bb4df4ced4d25577ad76c189e718fe849d58ff102ec496f98701954a2be46a72f0c7e8b33e7a1cb",
+        "id": "dbc1f770-df5f-4efc-8918-373fed551580",
+        "password": "scrypt$77482ebd868dcbb2a4ab35f1d1c3ce22$0c16ecc893848e2e783437c62b5a072552c2c69d448383ce47b176184f0a8a96433e2da013ea16f813481fcc190f521c6b4881ded60f0ba6c4cebd08b73ce368",
         "nombreVisible": "Set Rovira Navarro",
         "trigo": 1000,
         "hierro": 100,
@@ -803,8 +775,8 @@
         "hierroProd": 0
       },
       "1839190": {
-        "id": "3ec14012-31c6-4a4d-92cc-7faedca8ee09",
-        "password": "scrypt$d181f688dea45fe23d1021f2e3fa88cf$a2878bc934a9f8732db8a4a3adde53e609599f1c1a09039bf35f3b06e3c77cfa5d689af154294cbd952e078e82cdf0abd410dcd9ecd8548496a44b18e8ea9d5f",
+        "id": "66510e17-92b4-4013-a01d-25f7f71dce3a",
+        "password": "scrypt$3f30c593c1f734225161a29e4c5a72ec$42ab4d79e564c87d3c9899b44b8580aeab34f77428aa4c4726aedb0484a3c088b0f7d37fb4e80c40a17b23e45c29da05a4915beffdb2cb4e7585fbf9a9f8f8d2",
         "nombreVisible": "Victor Mendez Chevallay",
         "trigo": 1000,
         "hierro": 100,
@@ -817,8 +789,8 @@
         "hierroProd": 0
       },
       "1839517": {
-        "id": "c0b54da6-5fb9-4d5a-a3e0-e6609dcfbd43",
-        "password": "scrypt$56c3e32105a22a6b05ed495ee17fc789$456655a77ac8169b14626974be563406926cff1eaa420d434ce06c2dc27de38a6f88d16eebc357dbc7d40ec2ef72324a62502bcab7bea8234c219dbf6085fbc2",
+        "id": "da89c587-8e99-4731-8398-4ad7bab0936e",
+        "password": "scrypt$88b377b8b9986db711375122cdffb6eb$48718106ee31544325fe5fd70588a16c475b77ddf4ede45aec0b97e779296d76ad6d613c0085add756ce464af6a2d6ed60db47199c1a43eaf8a21bd0b3739dfa",
         "nombreVisible": "Silvia Perea Ramos",
         "trigo": 1000,
         "hierro": 100,
@@ -831,8 +803,8 @@
         "hierroProd": 0
       },
       "1839967": {
-        "id": "4e920263-eb4c-4565-8a10-84b0b4a804d9",
-        "password": "scrypt$bf2229a72507f91258e6618509096247$b41fbec0e715848073a474c710b4f64bc8557da30f8344641589b04bfc18737ea9ddb19c30c302f49e9830a5a7240d5682c3749c501759b19e3f695f01a59086",
+        "id": "dddfb9ec-8f39-4960-bdd9-529dc775af6b",
+        "password": "scrypt$96acf8007db1a9d8f5ad71f3c060ecd0$17ce0576f3e073769fdbffec4399207c9b0e1889550fce8d50869b68133c6678ef5a07b32d1f266e4e33f648882b0740b3eed4db0802db823ac4c2d86184db8a",
         "nombreVisible": "Aaron Portero Marin",
         "trigo": 1000,
         "hierro": 100,
@@ -845,8 +817,8 @@
         "hierroProd": 0
       },
       "1840133": {
-        "id": "45824d1e-f369-40a8-9054-531d4671339b",
-        "password": "scrypt$690c9ac2e31be06630e40b352044f544$b89d76b4df09338060891ee92ef9ff324e0f5f41beef73b7d4d10e502cfbb9b1281e0cd13f55c1877528644e423aa72135fcf781a75a3d7301cfb57f4dd92d9f",
+        "id": "b871e328-3d23-497d-b61d-309580bd77f8",
+        "password": "scrypt$1e4fb983c6819134e4b0a35a7c3e88c1$5bce320c62834d35ee6042acbc92e806ddc00731fead47713c7a07db5171fb0cf6e7b71ece2b9389f47b12f8888a23bf473df6ae186c13340f1abf99e0d4ea93",
         "nombreVisible": "Arnau Funes Tuduri",
         "trigo": 1000,
         "hierro": 100,
@@ -859,8 +831,8 @@
         "hierroProd": 0
       },
       "1840239": {
-        "id": "6e8287d7-cbc9-47e4-b8b7-8dea70bd7c44",
-        "password": "scrypt$214436ea8922870ecba72dcd4e24b44a$5cf35ba55ca0036bff62cbc3156fe819f54b32c6b1ea5617ad6ed530a89003ecb6cdac5736378f73a0ad88e7cfd9556724d6736203f68d76a739e2c820902f58",
+        "id": "dbaeec28-3a96-449c-9edd-5c95303b6037",
+        "password": "scrypt$55508678c81d36511f157261c8e55528$cde5c9cc9dd3b47df04c9cb81858a33b46d4e35e694ef17721c767bfe115083b726f2ab6c6392815a5e7f410b076c0e9255f9576027d50b9fa6e529911d1983a",
         "nombreVisible": "Daniel Arnal Lamelas",
         "trigo": 1000,
         "hierro": 100,
@@ -873,8 +845,8 @@
         "hierroProd": 0
       },
       "1840288": {
-        "id": "6a4a73f7-66bc-44ad-9d6e-01d7eec4f79d",
-        "password": "scrypt$4243d3627cd9ad167daf966c93398238$5f6e67133d49c771ff04106f13d42680eff8da83c6cf268b17f3bb61757506179ea3d44c47de4666244d774a4ef9daca8bd7f702093153f03e79417afa7d78ba",
+        "id": "d3a019a1-6aeb-4095-92e9-4a1308970f87",
+        "password": "scrypt$bbe5b8829886e7c009d958134e39246d$fa1c55cc210ae4df0705d306837d83625c134baf1adf98e51beefa5c3e1b426c100cdf84dfcb59a88892fc5257af1e7cff1ee326f6ff9f7f2072e88ef78709b5",
         "nombreVisible": "Eizan Sevillano Arocha",
         "trigo": 1000,
         "hierro": 100,
@@ -887,8 +859,8 @@
         "hierroProd": 0
       },
       "1840369": {
-        "id": "07a18530-6868-4a12-b986-a7c192ef77fe",
-        "password": "scrypt$dcc7011dd1c369a712d1b005b44afd6a$c06a18a21bb24a1d69586e588e4475ca239e4d7ecbacafc4a477a0f99dd10f0e2d3be3f6927abf2260ec7ae214e38367fbed414b85f890fd435a0f4b1b71e9c6",
+        "id": "6e7f1613-309b-42c9-9b7a-5d4a12eed17b",
+        "password": "scrypt$dd0ed21d31f143e54d3eab0ca10212d4$8ca41db46b96baaa46cdfb5d78a7a1a57802bbe15725879fd71883fe5e8942b1327013161f1e2086b6a9a7272d3fc31cd9dbd7079a2cb50bdb4bfbad3f451ccc",
         "nombreVisible": "Gemma Lisseth Vaca Quesquen",
         "trigo": 1000,
         "hierro": 100,
@@ -901,8 +873,8 @@
         "hierroProd": 0
       },
       "1840383": {
-        "id": "16ba8878-d6cb-405d-9c05-12678eb27dd1",
-        "password": "scrypt$40eb78ed157ab614aeef5a766d66bf4f$e6c531fd2a9c0263c784cbda0a862730b76708cd9628166df206b12d2b68c6de3ef3acee65a11aa11081b3bc96d4e5f4d7d2f390a5bb93b1b06cc0b5308ea1f9",
+        "id": "2369c5fe-bfa8-4387-9efd-f169214609f3",
+        "password": "scrypt$2d43ae409cb1c0885f1e2911ba149c60$5682a01005aa38960790f0d3d29ea67e42d532f97d21432182b396d76f57c99f8fd3051aec16cf054b46be1351b2f6e99e6e072f04be443b25586c997b8592b5",
         "nombreVisible": "Greysi Gloria Morales Ochante",
         "trigo": 1000,
         "hierro": 100,
@@ -914,23 +886,9 @@
         "trigoProd": 0,
         "hierroProd": 0
       },
-      "1840418": {
-        "id": "a467523e-e739-4b41-ac94-519b5e658f98",
-        "password": "scrypt$4d19585ca93b1fbc697f8a69e4b92c0a$22d5b1d84e2411118eb5484d3aa3ed0f25d38ec12834aaa8413e2cdddc00525ccb74015414a951c7042b03b1a0285c33acfd1e270a9e0a8dc248208b7ca89f5a",
-        "nombreVisible": "Ia Bliadze",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
       "1840515": {
-        "id": "61b5c942-0677-4382-abe0-a319196c0625",
-        "password": "scrypt$563794f73c8ffd93a3d5ef7d88ff7331$de80c59bfcc19e82bae7f7eeba6d9bd737b6a0aff14447e204d499f8e07e1ac9154ab39c2a5ac99c539a9c52f826bc9ed8f8fa3b9603f130b8d7ae7063a5ad2b",
+        "id": "01d3be16-e1bf-4026-bb5c-0bef0c0d323b",
+        "password": "scrypt$41e4567edebad66454d6db4b11e785ab$7f3f6f7ee7d174f1a6eb9eaa123d12b525a9901fd34dd0b0b202aef48de6a2b2835de45c21c7e42735b1c6b861b728bf22e7ea89f929923aa7402136502b457f",
         "nombreVisible": "Jose Antonio Rubio Rodriguez",
         "trigo": 1000,
         "hierro": 100,
@@ -943,8 +901,8 @@
         "hierroProd": 0
       },
       "1840632": {
-        "id": "fd65d075-9513-47f1-83ea-86ba1029c6af",
-        "password": "scrypt$208b31d6278cc151af747c1a09938a2b$61f27bf0bbc7d83f6bc7df3f6a06e3b33639525611fb93d57bdc307032bc80da82c95120e7ea4bda2ba3e4379d29270bb995c7e36780e6d22fa704b5dcc3dc0e",
+        "id": "72306fe5-2771-4495-9b57-a5e94f088d91",
+        "password": "scrypt$954ce760c20ee0bae6c5902e90c507c0$97135c851bfaabefde4696e82ec6f7b38d5b992663faa5ff4cfce12b3874b2aa6f1604dd28e61c6921eccf451158bd7a7fa9c6ab3fe51716bc684f0f71ecf8d0",
         "nombreVisible": "Luca Rivero Torres",
         "trigo": 1000,
         "hierro": 100,
@@ -957,8 +915,8 @@
         "hierroProd": 0
       },
       "1840688": {
-        "id": "bfbed391-52eb-4f99-b7db-4c23865dd0dd",
-        "password": "scrypt$afb9736f4146add71ea07e9f788432dd$c7301359e6fe8c295c95ee9874237111796fb3721c273dd58f663ba1e5b94bd2c9a038d844deb87e3c2534213814e913c3a801c6790b7fc79f1fb1db325482e2",
+        "id": "210dc12b-35ed-4fad-9fcc-b4924957c7d3",
+        "password": "scrypt$0f66bab37c2f6911ec4922e19aed2fa9$7b661833dad6f0f24c89f4df24948b383d5f0e268f314938f12e53c632fe420196c9e634d52e14eea5cfe37d86e1361194e8f535857a66ed40c4624495a1eeda",
         "nombreVisible": "Marc Ros Moreno",
         "trigo": 1000,
         "hierro": 100,
@@ -971,8 +929,8 @@
         "hierroProd": 0
       },
       "1840757": {
-        "id": "931c0f9f-ec41-46a4-b03f-4c3ee517042b",
-        "password": "scrypt$391e1bab333e6cff06ab7281e75aed26$46b06712251568e0181f980c48893891e5a3ce3e3ed137450664bae5f0dd6d78d3237497c6caeee17d447ced152b6d4ff97f1dea92fd83abc4e5ce19896a699a",
+        "id": "a296abdf-bed3-4789-b487-3f3593452439",
+        "password": "scrypt$a33cc6794687f42939dc45826d9a502e$14e8f479c5902d39e43da97964e44244363f2928f9205049f5aa11a2eedac07c37a8e3ad4c9e388e1df890da60feb1d99c3f348539b0ba9eddb12636f166ca09",
         "nombreVisible": "Marti Bayona Illamola",
         "trigo": 1000,
         "hierro": 100,
@@ -985,8 +943,8 @@
         "hierroProd": 0
       },
       "1840841": {
-        "id": "c9746406-8190-4ee3-a53e-54875901bebb",
-        "password": "scrypt$beeb8c4116f00574f4f4e84a1e068b61$4f7f7037ab674ddd55ce9d4ea06e114eac6945f62138be425d74d2056a2d9d80daf34e9ca3422e607bb4805ccd24c044ebcb01ea0b64139fd1416e4f0e822c3e",
+        "id": "3927ae5b-efcf-4acd-b778-62503bf7af2b",
+        "password": "scrypt$f3261adcac92ba0812d68b7ad1a27977$d84338d0099e003d7850a33839789cbfd104e27e70551ab4897ef04302597e162d059cbd9d464b97bf734ba113073f8c302dd1e218a79432235c708f7a7c7cef",
         "nombreVisible": "Natally Nunez Barrientos",
         "trigo": 1000,
         "hierro": 100,
@@ -999,8 +957,8 @@
         "hierroProd": 0
       },
       "1840855": {
-        "id": "3c25932f-ce05-4930-9243-7855e46d6854",
-        "password": "scrypt$a9c1c195cca76d5fa1d0208f734991f4$dd94f4d6f0a36c2005abde45eca9ce0535850f2214be4ed11fcdaab5c0ed88fb18bb90c4861f4d9b21ed29a54d2b50c16572b7f6dcdc7e5190b12c5f9c0107d5",
+        "id": "425dedcc-3f46-4343-a300-7b0a68eb1e10",
+        "password": "scrypt$3f6990b0678e0284fa05e5328c729683$e5857bcfa05158ff3ed2918c25a50f63b98a5b3fa2d5bcdcd9fecf23712751c7ca187bca576a87c13f5e6ddaa0d91691934b323b7e04baf50693fdd304278918",
         "nombreVisible": "Nicole Alexandra Penalo Heredia",
         "trigo": 1000,
         "hierro": 100,
@@ -1013,8 +971,8 @@
         "hierroProd": 0
       },
       "1840862": {
-        "id": "e9bd196e-8933-4b4b-bad3-e7ed0f2804d3",
-        "password": "scrypt$afc4882493cd710cb386325f254aec38$4954c9a4245643a9fb9e3a08515f70d43363217ec1a8089bf327a18e7be9e5982b150f9161ced24591edf4bc15792e3aa88277dca76169728011a8a2eb3ba005",
+        "id": "df433e68-3ed5-4c64-9682-8442becc52a6",
+        "password": "scrypt$b40c8e59768b574dde8f0a3a4ebe3f06$1087646fb4cd543040332ae4718ecb66d1daf1d09fc68290a424ee07d51a293aca27a77a01f36cf73ae44152f0f90f583a4142396d6404ffdb3805e09424cfbe",
         "nombreVisible": "Nil Ortiz Fargas",
         "trigo": 1000,
         "hierro": 100,
@@ -1027,8 +985,8 @@
         "hierroProd": 0
       },
       "1840976": {
-        "id": "ebc4a999-f9dc-44ef-bf2e-35c34219e428",
-        "password": "scrypt$9c452808f71cb90ed114ba5d588927a0$e135f2426f2774c94c5e9774b5d4b1d31db7ddacf62d9f97022ff7ef65bfc6ef1ec259b97138e389fe71cb74f2d13a52d4a9231815081bb6c9400f601377ac8d",
+        "id": "ace91a5c-f96c-4e62-94ee-f6d2f4f16fae",
+        "password": "scrypt$e22d85e9a5dcb8e23cb64eb0a2b8c908$d1a36da23a156d7209287b398f3fa9bd21142f3f76ef2e3a786090aa5fe6d2460a3f30e052f4e5eacceef74ff46c05b1148fe75d6ff3e51c156e59c14f36f381",
         "nombreVisible": "Ricard Martinez Torres",
         "trigo": 1000,
         "hierro": 100,
@@ -1041,8 +999,8 @@
         "hierroProd": 0
       },
       "1841004": {
-        "id": "4ab4a682-a9a5-4e9d-af18-b6f809416975",
-        "password": "scrypt$01292401468492440149830e29b7bf27$bb1ba4c53f4d3149e749dea132f05b4235334c8ee998d459e91389bcd664208b0b6e021606fbb2bb31c9c75b347e8988cdc102dd3fe9375157a5c3085117b135",
+        "id": "58bd129d-970d-4e2b-b649-fdf0ece1d875",
+        "password": "scrypt$4f97c47f7d4c8243c0ccd8d3efbdffa1$c5d51139bfa04a8843f38bd1ef858a527f14bd8e4115f610ee6328eb3520f9449155cf5d80ec92f8cd01acb089f7daad9d66dc0d860b320c8ce37d550c977b3b",
         "nombreVisible": "Sandra Rubio Gomez",
         "trigo": 1000,
         "hierro": 100,
@@ -1055,8 +1013,8 @@
         "hierroProd": 0
       },
       "1841018": {
-        "id": "27a7e023-be07-4e65-b189-d1af39fcbe0a",
-        "password": "scrypt$3fa4d0ccd38e5baf4bbc0255f583e5da$542dd8e57eb202a11fb37c696b3d818ab2ee2206899de9af1fad2f7f9fe2e7cd920d7054e308a74db55ba51008ea17d0389daa0c62a8f8bc79d992809708ea2b",
+        "id": "5cc264ab-adba-4cf1-93b0-5c0a61733935",
+        "password": "scrypt$0ad93e48242627cccd9e3d38010f3975$888d216771726250c5595d39d4a47de9e7c76dd6c325697c5e01374e80ae8883416fbd066490e72404aa2c180ad3851c1f60fa63750ba476921f9cc9395e3d7b",
         "nombreVisible": "Sergi Domenech Molina",
         "trigo": 1000,
         "hierro": 100,
@@ -1069,8 +1027,8 @@
         "hierroProd": 0
       },
       "1841034": {
-        "id": "c5325960-3453-4dc7-9924-7bc2568dd975",
-        "password": "scrypt$9e3d4a411a41e46410c8832e45be210c$28ea052c5a447a7a1ca0dd96bee48db26a815dd519b09668dde78b58207384732355e0c6102fde27a8e216651cba4b5fcc8d5d8161007e196416eca135e2f8e0",
+        "id": "9fd3ada9-0eab-41f0-b491-50b734c0e2c9",
+        "password": "scrypt$817fb7bae3e09b73950de5aacded54fc$aa0c487b1dec7022086c338f7a9ea95a3b0c149eaeaf200b49758aaa1a04e0821e85af98e6745011f76035520bf11e4f39468384386a59ffd243860d1568eea3",
         "nombreVisible": "Sofia Gabriela Acevedo Rodriguez",
         "trigo": 1000,
         "hierro": 100,
@@ -1083,8 +1041,8 @@
         "hierroProd": 0
       },
       "1841071": {
-        "id": "3935fc1a-d16f-40d8-9548-4291307819bb",
-        "password": "scrypt$a4bfcb8a27633f740158526bb61f4cfe$579a7dd30dd636cdfac9e45f8291265e092e8e7425eeea963731552f1eb34241a32d621ee326e1ce2b301240fef004056e9b39832f33d3de10f0de7a96c582a3",
+        "id": "c4f10eee-ba71-4d50-9c2b-12736d93ea21",
+        "password": "scrypt$d1ca534dd0e2aac4cc6bf97de58d9351$38365c6ab9b1a3bf32d91369e42027f7483892f4bc3d11e6f705726819904e13c6abbcab2483541d92f4f55b5ed1f4ae5e7e7f63b972d22018b0a166d3868038",
         "nombreVisible": "Violeta Manchon Perez",
         "trigo": 1000,
         "hierro": 100,
@@ -1097,8 +1055,8 @@
         "hierroProd": 0
       },
       "1841696": {
-        "id": "f5b47384-74b5-4267-9b3a-9e371c413022",
-        "password": "scrypt$f4086c32c4e5cc1ba850c3ef78ae248c$fd59b748322198c6277ee39ab2beecd751bfd042280a2192e10a99853b9d91d2a82c117575b0ae9cfde5175a78334e172923cfc63fd73c25ec0ad49c8a0a29f7",
+        "id": "0511502d-7163-47b3-b89d-10671187a776",
+        "password": "scrypt$4b64a101b402075402642549fa659cc0$10d9e07696168d518b367bb3717f541c2a27c3b5081f094f390f75fae44cbdb5be026529b4bedb78d7bf142663be06ad77923c7bd3dd281c266bb1bb8178d5ab",
         "nombreVisible": "Alan Saldana Martinez",
         "trigo": 1000,
         "hierro": 100,
@@ -1111,8 +1069,8 @@
         "hierroProd": 0
       },
       "1841754": {
-        "id": "5fabdf07-114c-4d9c-8567-d0ad9720899a",
-        "password": "scrypt$324d7c752a4cc5f9af9d99c66130c723$2f50b8e4fc68b71eb8ba2c4bd9479e897da579ae7382285e121670b0c4d3bbc1df096bfcc2e397327b2f20a2cb20f04c36a9c0fb8258732003b3d9fa2646d459",
+        "id": "833872ce-2119-4a83-bca4-ab6ee04b7758",
+        "password": "scrypt$530d5c43a9ea105187e7e0dc52a62590$2ebad505b788f6a85478a13c710d7d09fc383dabd1b103bdad741f187bd57f540d76e94c952acbd9f5d82749ab4cdc0e56192c59716964df472716288b9ad079",
         "nombreVisible": "Alex Pardo Abello",
         "trigo": 1000,
         "hierro": 100,
@@ -1125,8 +1083,8 @@
         "hierroProd": 0
       },
       "1841793": {
-        "id": "47129428-deba-44d3-9cdc-56a4f4352d73",
-        "password": "scrypt$e43df7eca58b54abf53662a6d0f61ba2$aa7234874548d68a163c3874c47d54dd9f79c2d742dc870ae761a57fce9007ac9c3b9feea21d310847f87e28ded8436ea47a6f0832d0cb48098d183c692ba585",
+        "id": "26aeb1b5-75a0-446a-958c-47d362c3e924",
+        "password": "scrypt$bc1c3d6dea2e335b5af0c01195f2e964$384d4005e78bb150f815cb80b86fc07a9c5b49a4b695a513082a274152d5bc9ad20a9340b6b3ddeebb6c982091749b9d4151a13b15af5d900d5c3c5a0ee0b59c",
         "nombreVisible": "Amanuel Pau Jofre Sol",
         "trigo": 1000,
         "hierro": 100,
@@ -1139,8 +1097,8 @@
         "hierroProd": 0
       },
       "1841869": {
-        "id": "4cf8ca59-83b4-4a2f-90fc-878d953b4ae3",
-        "password": "scrypt$be6dadf6eed789111201e1474c181510$a6baa13b55c498acab19fbeecb18d9cb9e7e88f1ec22dd7f95186631174d74594118c925467c05b78dbef312e270313cd58612021647fe3451d6b549f245cb75",
+        "id": "5d3d9819-e135-4974-be44-56f74f4f20c1",
+        "password": "scrypt$c070b136ea03f45d02af0f5b0f727812$6615ddae5eda05173ff2d0a2c4676322661e9a40d0975d5ea6440ff1ae8bc497eebb4168869397f1cf1a8f5c0cd39a7a1aa5636fbd958be7885f7b805d427f95",
         "nombreVisible": "Anqi Yang",
         "trigo": 1000,
         "hierro": 100,
@@ -1153,8 +1111,8 @@
         "hierroProd": 0
       },
       "1841896": {
-        "id": "a85c84c6-4d7e-477f-a162-2b97377e3e41",
-        "password": "scrypt$cd7c228f9c995af4e47248a0d1b85f5b$ab7adfb672df14a3c7d44b096bd3f91c25cf23aec8013364b5110e2b9266302b4661bda1c76a1c576e42e6cca7c02cd2ba1e00fe7e30172f59eee34bcee91168",
+        "id": "b6cff423-f2cf-4617-ace8-807c3e35b386",
+        "password": "scrypt$e1b4b65a603901d6b1119e496860b351$27af17d6f7db8c84840bc4593741f3ee44765e03b44b455b2ad37bc073e9569aa6a999bdee4f9ad090504c7ff9ffbad19bb339b44a74eddb266ddb2ac869e86b",
         "nombreVisible": "Ario Jordi Ledezma Fuentes",
         "trigo": 1000,
         "hierro": 100,
@@ -1167,8 +1125,8 @@
         "hierroProd": 0
       },
       "1842028": {
-        "id": "a9e045ca-3b1e-4f29-837e-727e5028e687",
-        "password": "scrypt$790722c3ec6096eb127aebb11d90ddb5$ecceeeb1c3198f2cf16df4b5d8b45567d40d801ea136e8315cc2f1b92882c53be90540257b6b0983a418a720426c811f1cca51a1b83b037f8ddc0827cf40fb0b",
+        "id": "78a4093e-f861-4d66-8162-c09a9000ab0d",
+        "password": "scrypt$87f60f43de0de112183fd6571fcc328f$109243e253b89576a9527d62ff8c6301e04129db959f32d7ba2b7a1c6a240ca7c323915ef5fcb55922c6d148bf403ee76047430d6aa939291b67c1968d6f0806",
         "nombreVisible": "Carla Jimenez Macia",
         "trigo": 1000,
         "hierro": 100,
@@ -1181,8 +1139,8 @@
         "hierroProd": 0
       },
       "1842151": {
-        "id": "6708612d-3885-4da8-9191-0159124dafa6",
-        "password": "scrypt$edce972b89dfa526b98587ff3d902754$8e3923dc7826a9c15ce4a1967fd24f6a6dde091f42461bbff560de275292004b8a223b0780618aae09979eb273bef5f989c1532ea20735c92f25d4a1e6f6b418",
+        "id": "d0c3c4d9-1020-4b99-9df2-c42480653fce",
+        "password": "scrypt$89205766322185eb3bd1839457ab95ca$87c7d24f214794f829063c5aea5eb0e95b4c015ac062efa10e0784d20840edb9894e6664d272bb54fca26aaac5ffbed1c99d2a6433ecbdb7cbac2e20235f1413",
         "nombreVisible": "Daniela Espinosa Prat",
         "trigo": 1000,
         "hierro": 100,
@@ -1195,8 +1153,8 @@
         "hierroProd": 0
       },
       "1842243": {
-        "id": "2d36b623-3759-430c-b84c-c0172735b7c9",
-        "password": "scrypt$21927bfe5dfa66a5f2ef0c726ab0068a$86b02001c4537e720ec00969d269780c19de270a887ab53939102fd0071964a35792ebce12892c75dee7994bf02431afb32aab313b3aa40b1830d8003411296a",
+        "id": "1d595997-fef5-40c5-9499-ab80d94a7b92",
+        "password": "scrypt$b72f9f60a152cce71173f936b907cb96$769ac5d6599040ccde6105c8054897744e15bae359501c276d12835e189364c2a4025480b133011543cb74c90807f30cf97687e22605abd245a7bede1896d6a0",
         "nombreVisible": "Eloi Canellas Duran",
         "trigo": 1000,
         "hierro": 100,
@@ -1209,8 +1167,8 @@
         "hierroProd": 0
       },
       "1842304": {
-        "id": "4848af24-e39c-4f89-b1d4-7c37e2491d8c",
-        "password": "scrypt$6c8247d3d8554944c296a26e18cce8d3$ed7f271d4ce2575de21d6f4dec9b357bdc534831470425c5edc6c94a2a3b17ec5243f17dc795c82019c2cd701d3dcd375fc08a4bbe784edabeff16661bacffa3",
+        "id": "342082d3-0bd7-41cb-a577-eb82f5721080",
+        "password": "scrypt$301522c93cd421ea212fa80c9993108d$673d781cc8f95cb79b8a4a43f8c4e483cf802894b80410c8c4172e21c103301fbe08ae02e52c1b4b5922d0dfb49eebfc22ff70713e45e859170786cb1a937db2",
         "nombreVisible": "Ernest Rique Ejarque",
         "trigo": 1000,
         "hierro": 100,
@@ -1223,8 +1181,8 @@
         "hierroProd": 0
       },
       "1842385": {
-        "id": "3ca04696-afda-43fd-a0ab-61a82a5228e6",
-        "password": "scrypt$1a6775bc9736d61690bf15c313de4604$7dc1a8f9cbe9c2a80308e62c8594b14dc0c276dab504d28282a04f1ab28e40618370f6d6a3cd3b9de77142e73db1cf5e5e95852c29cbbb8c11f3ed076874b787",
+        "id": "11ea8dab-c8c3-48bf-8227-953c7f81a6be",
+        "password": "scrypt$84326ae33ca216ede1b662740729cb5a$ea286144af28355729488e01e59380395cd79f0193e83b7883b427fcc8da24ce3441387252fe840e0fb5c9df87879ce8f116dc9dd93d5608f5e3bb3251e5caf3",
         "nombreVisible": "Gerard Santiago Ortega",
         "trigo": 1000,
         "hierro": 100,
@@ -1237,8 +1195,8 @@
         "hierroProd": 0
       },
       "1842580": {
-        "id": "76fefb87-4fb3-4c2d-b694-508cf3145a7a",
-        "password": "scrypt$0930faf829b906e72c5faf7cad819546$6104873c4ab5bc2d5047d0f22341fcf225fba8ccc0761e1dc941a5e8e4fee5094a7abafa97225652e569c669eaabdfdfa810e16a10999afdd4dcc0fc9a5b2a5f",
+        "id": "ef34534a-a8be-4a4d-a8d4-3c2b567a19c0",
+        "password": "scrypt$647611a0af565da78a814e71c5e22c0a$314e9a8bb9a875e01c9dde7ffb3c4853bb8bc0599ba2d4664b8f039731f13528d7a486f0f1a3f09a65c28a00ab24b0f8e2ef3c38439c15235e955fd4a77c1fbe",
         "nombreVisible": "Javier Chafer Tercero",
         "trigo": 1000,
         "hierro": 100,
@@ -1251,8 +1209,8 @@
         "hierroProd": 0
       },
       "1842650": {
-        "id": "eea8fe50-e5c0-461f-a629-20fac2c0d8b9",
-        "password": "scrypt$ae5d864caf8c82d8438ef55c1a9ea188$0b6c2914bef1f58624372728fd8ae910332e5b3ffdc16c4251cb2c0d2b63d8733b8943496f165e44d041b67165a8131a58a11479b7fe21b5cf960837b4cbd0cb",
+        "id": "e6433bfd-9aa6-4946-82c8-4338fe4d7813",
+        "password": "scrypt$0039cef6fddbea43e52689bb572d652a$94efa63a9c7bdc32d9dba73aeade042ebd016bc4a63ee9335b7d80baa0c7a15cf3b8c517076887ae12d78a1298fcbdd889d9a3f0c1750a9b7030a7855246231c",
         "nombreVisible": "Jose d'Alessandro Condori Huayhua",
         "trigo": 1000,
         "hierro": 100,
@@ -1265,8 +1223,8 @@
         "hierroProd": 0
       },
       "1842703": {
-        "id": "26b8feb9-56cc-4c7b-ab97-6092abe8797e",
-        "password": "scrypt$425f057e292f5ffda626264ff7219a2e$04e54bb58f705fb77205479dc4cffdf760662682d2bedf3666f4da040ffb1413767f1e40ad650c8d53e4d5523ab6a325333bd8efaae55fd333a9ff7a0d5deff5",
+        "id": "f1b9c334-21c0-4dd3-934c-dd2f33dc2959",
+        "password": "scrypt$39a01416e56a16f834842df70cfa73f9$8f706f9a2171787e1177e3c77ff835eb56f0252a2ac2b4319e42471708873f05ea11f76dd1160da755060700b028cad44ce07b04220cc795a491261567519653",
         "nombreVisible": "Julia Vilchez Domingo",
         "trigo": 1000,
         "hierro": 100,
@@ -1279,8 +1237,8 @@
         "hierroProd": 0
       },
       "1842887": {
-        "id": "e67a815d-8ae6-4bbd-bca9-da21c9fbf462",
-        "password": "scrypt$aca557ee5b434c207ef61c7622b1c6b4$8a2d6e3b8f91518c92d4aaf307447720bb8a35f1aa44c6b0aca7bf4055c32dfad7e0bf54586c02fb4b0bc1c09daaf9ba86423d8cf48f9144d120940fa58cc752",
+        "id": "59b2d848-cb32-4873-bfc2-f68845bc0bdc",
+        "password": "scrypt$94566611da55713f195411e0fbdc57c4$f527b823de5e47c589342b3252bb573a5beb1cc765999250c37edd3b007cf040715c724d8e59cebc3d2f682b51f33ff36e4ec308dd4e2f4513549aa4ff82acd1",
         "nombreVisible": "Manel Camara Alonso",
         "trigo": 1000,
         "hierro": 100,
@@ -1293,8 +1251,8 @@
         "hierroProd": 0
       },
       "1843015": {
-        "id": "b66d913b-3f50-4d16-8b15-b1f6b6a5fc08",
-        "password": "scrypt$8b27aff138470a3dee60fb4b2498d604$6c085e6f9b61b2642b81805ceeb0e48e6c24491889aa46cb16fa0731bc1fef767cd2a54183d7fd5f889be0714aaa2fb29fe62c230976f18c0b620d0c6b66825c",
+        "id": "6905425b-290e-44c1-90e0-e64888114030",
+        "password": "scrypt$81b12a96b22d8c40df87a7f3631813bb$17b8edd75ac61159bb27cd9e095175aa7b5aba2ed63bf9e8821bbec79f80edc7f12e8faae545ef0f87e101296a0f64142a0f7899326e90bad0d8486484a5f826",
         "nombreVisible": "Marina Massa Serra",
         "trigo": 1000,
         "hierro": 100,
@@ -1307,8 +1265,8 @@
         "hierroProd": 0
       },
       "1843115": {
-        "id": "e93cdc97-a153-4510-95ad-21acf29652c1",
-        "password": "scrypt$f6d89b522b664ad159d42d26e76c5367$5f30e6fa207dbe2165a1130a525ecd2dee7a278c48314ffddcbaafa82815301581d08cf2bc3207241d370dd19f3d59823b1d20dc5e858c6a8242f33c4915bacd",
+        "id": "d77c2bc0-efeb-4eb8-83f5-e3f3f090229a",
+        "password": "scrypt$fcaef67bfc55b97f77f5419d93c8b83e$1dc98d751eaddf4810aadfe138ea121555b87ae3929bf79cda8f242669bdfb97fa321ed87da846f193ec870d5eab5ed3033ffc6f31dc09f198928672120841a9",
         "nombreVisible": "Mateu Luis Faixa",
         "trigo": 1000,
         "hierro": 100,
@@ -1320,37 +1278,9 @@
         "trigoProd": 0,
         "hierroProd": 0
       },
-      "1843155": {
-        "id": "3807c142-002f-4885-9e27-908b5d05d03c",
-        "password": "scrypt$583b46850c3b86fd66de8a9c002f9406$ae9d7c355545d269eefc56d92248de7a9a267fedfe095a6be7b558984e7305420bfba5468025718d5768ea17e08fcbae296d29aaf14d92cca18657f88ffecfb2",
-        "nombreVisible": "Miquel Camps Caldes",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
-      "1843261": {
-        "id": "972c82dc-78cc-4bca-9c67-2e002769d28f",
-        "password": "scrypt$07e59a1aa63591846b7a9db5201aabd1$0411bc0c1a917ba27516a09704c1e9f870744c1f60ea0af993259a03aff728b7fa8c0cf29b244a7395187d0c4bb19cf6c94819f1fa746278fa7b23fe8c804158",
-        "nombreVisible": "Noa Sanchez Marin",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
       "1843483": {
-        "id": "c681e7a8-0826-46c3-a4d1-92251b84c9ef",
-        "password": "scrypt$4214b46304de980f43a12191535d5768$40b7f664a58bbb32c0a5df48a35e9345d0b23bc045f978a1e75b7c1aec3ea98dbe2dc4f7df9e77293249eaa53de269262ea6024779623a3274895662a4280171",
+        "id": "396d6682-f592-4ea5-81c4-bef6544eadce",
+        "password": "scrypt$7d43fff88259ef5ce4aa842b128fb893$6f085096da07c997b1594506831400464502b60cff285f942d69d89e73a867492094c265e8fbdd20d2143059ee770c93abad8ed3545dfd1b3b6825be4d4250fb",
         "nombreVisible": "Santiago Borrell Perez",
         "trigo": 1000,
         "hierro": 100,
@@ -1363,8 +1293,8 @@
         "hierroProd": 0
       },
       "1843676": {
-        "id": "bb54df40-8afb-455e-8ebc-812177bacce9",
-        "password": "scrypt$e0e7068a3bc4d3956b753d1915bf8b42$b8649a3c70f1485b5a3708bca88d852fb902e1c1886bb9a0003bb73df64dd96fb7ef02759dbf26f1db805556c3ce3272d3b8c011f14fead949fe73d5f3c8f7de",
+        "id": "43e0b6b5-3d54-4fb9-b022-325f5edf08b6",
+        "password": "scrypt$447f5dcb991244ba28441514556d2462$0b20d062a7b210b1b294aeae7dfafe996d702391bea7d24ec04c763faeefd889b95ca4bf206d3f07bee8807035462a041e2647ef054593df81585070d006aeea",
         "nombreVisible": "Yongsheng Aran Ley Altimira",
         "trigo": 1000,
         "hierro": 100,
@@ -1376,23 +1306,9 @@
         "trigoProd": 0,
         "hierroProd": 0
       },
-      "1845508": {
-        "id": "f945ece5-bf33-4a23-84c5-3e8cf406b936",
-        "password": "scrypt$1bb7733b39c0f06f5f63fd6866bab49b$5e4bd653a580e2d6b7360172b49ca788546499484e2cddab22bf11ee7dad93b64b6a7ac0e002cbbdcde7b5e5d9f3f5e8e1b8d90525d715f924dfad57853d698d",
-        "nombreVisible": "Eneritz Perez Bozas",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
       "1845651": {
-        "id": "b0a11f35-790c-4512-913e-5f4f9dbdbc91",
-        "password": "scrypt$6c211483a766655ea17f89d8f7b4824c$460c81bdda50775551cd1b02c23fc62958b471677ea60a393b23eb54bd57f6bdb2de4b93b577352c1a96b1bc5df658e0c1ef214bdb252bb3e887e0021dfdfc46",
+        "id": "ce77d7ed-e340-49a7-bda3-e198d9274076",
+        "password": "scrypt$8c4b38346287f251c0fc066246b92bfa$c1087e68a950c242e9107fd63ba54fc65fe63d9bb2e7aff3f16eb0998ce26d6f63e84dac465a7d83bc97a365fa928a588349286a86a6ceae9bdad3659518c2af",
         "nombreVisible": "Pol Berenguer Moya",
         "trigo": 1000,
         "hierro": 100,
@@ -1405,8 +1321,8 @@
         "hierroProd": 0
       },
       "1845685": {
-        "id": "d29ac9a2-aa39-444f-92dc-c7e00442d5be",
-        "password": "scrypt$9ff8f282fa70e888805bf2d33ece4913$f0e2312874ecc55ce6079987476b1e7bf43c3b83a249c5d794cd48c8947847a0a565e2b2e4b3ec150a9c34fe1e80656806bd86df9d0d3168cf76c3e80284cbec",
+        "id": "a0a0ef7c-e93f-4f7b-9703-da0edea1c40b",
+        "password": "scrypt$99437f832eeb685d7ec6a04311b84dd1$13a8d38d0ea062b8fa055d17e744eaf20558480cad6e0dee0d48cdaf921367c4816553700113a96dce8065e630b073bb8700bf69ecc84d8ec4c9c4e67d6d75f9",
         "nombreVisible": "Zixuan Yang",
         "trigo": 1000,
         "hierro": 100,
@@ -1419,8 +1335,8 @@
         "hierroProd": 0
       },
       "1846265": {
-        "id": "d5c8b09d-0c35-4ca2-8969-1d636354a855",
-        "password": "scrypt$52677dae19c0e629af10726e06f32dd1$42a51fc8ef704a141a6ea95f769e40924900142deac66e68d5087aa2b184009d6c7970d9cd6fe8bb7c28ac7d7bf8e0d25d12334b4741494725ee5f9cd46cb362",
+        "id": "27bade58-7c77-42d3-8355-cb9105fb8342",
+        "password": "scrypt$67c2d230a9aadd01090764abb57be4a7$37f72630094b7141ab54d38003a7decabdb9a0dc65559882d577f4283023eb830394b3b1b65a708aa330d017a0b5026fca83d2d603e7a5682bce45a65c232165",
         "nombreVisible": "Ignacio Saperas Comas",
         "trigo": 1000,
         "hierro": 100,
@@ -1433,8 +1349,8 @@
         "hierroProd": 0
       },
       "1846304": {
-        "id": "b890df79-fafc-4764-8858-e37905fd2538",
-        "password": "scrypt$ad18be7e2b8280e00168f98daae20299$1bda546d74bbb6986d4b6923ec1945aecfad9d0c88589670a17caa9a8826798563818184990cb488ba5e601c1ada5a5daa662b67de8049dd21fbd02466549c83",
+        "id": "917d6d87-8cd9-46e3-ab4c-7c14724f8b9d",
+        "password": "scrypt$92446c9c4cb5867d25e238dd133ca265$42957d9ba3484130193809a72f9fc0cc129576e05d7aae50bcee4f797c8801ca89f1250b634ff11130c3c415d49d2e8ab3c751ef65ba7f3af111bcf8cd9b874e",
         "nombreVisible": "Zaira Valentina Ariza Sierra",
         "trigo": 1000,
         "hierro": 100,
@@ -1446,23 +1362,9 @@
         "trigoProd": 0,
         "hierroProd": 0
       },
-      "2033205": {
-        "id": "cd636aa5-9e71-41c8-a546-0238d68e7b93",
-        "password": "scrypt$ef11b5a429d53b6e9ce5ceb7327bb2ff$9b3677e739b328b68126d37c2e729a5fa2c9fa47fbb5150ea164342778794b67f31902851ac6da1bac1f36e028bb56e931d0719ee8c57f894564372ba59f7769",
-        "nombreVisible": "Ana Rubira Garcia",
-        "trigo": 1000,
-        "hierro": 100,
-        "entregas": 0,
-        "entregasMaximoAlcanzado": false,
-        "proceso": null,
-        "trigoInsumo": 1000,
-        "hierroInsumo": 100,
-        "trigoProd": 0,
-        "hierroProd": 0
-      },
       "2104350": {
-        "id": "68cb72c3-30ff-4028-89e4-7aa35d63ccd9",
-        "password": "scrypt$a7361a64bfafe4c99bd4e6f948f6b928$7c6a5088564e393d802456c646bae28621c200864ada5f091e52c019ecd55a5bb0dfb5d4441867ad95a3a61ca419066290b3755cc2fece3f03b982d0dfe38bc4",
+        "id": "bc0e98f9-9070-4294-bf9a-ac6954d6aef2",
+        "password": "scrypt$39c176706df3ebcc2ec13bd470e90888$724dd86ec0e8f9fb6cc87ed2ef363e6b0ae7f7404fbb03022507ca119e365cc977d1fe8aa29618041daeb52f64446cc8675571cf459415072570545cfd7e5321",
         "nombreVisible": "Susana Santana Munoz",
         "trigo": 1000,
         "hierro": 100,
@@ -1480,7 +1382,7 @@
     "historialEdicionesJugadores": [],
     "nombresVisibles": {
       "1371068": "Victor Pizarro Martiartu",
-      "1570433": "Alex Justicia Sanchez",
+      "1570433": "alex Justicia Sanchez",
       "1667791": "Kevin Daniel Hernandez Zamora",
       "1708827": "Paula Valentina Correa Ortiz",
       "1708892": "Sebastian Parapar Restovic",
@@ -1505,24 +1407,22 @@
       "1791898": "Manuela Sabry Batista Luis",
       "1793255": "Sabry Manuela Batista Luis",
       "1793484": "Unai Payet Cladellas",
-      "1794371": "Angeles Rodriguez Fuentes",
+      "1794371": "angeles Rodriguez Fuentes",
       "1794538": "David Morillo Perez",
       "1795444": "Roc Llados Lozano",
       "1798157": "Oriol Feixat Cardero",
       "1798505": "Unai Rius Vega",
       "1801120": "Heidy Melisa Limas Medina",
-      "1802425": "Carlos Puertolas Ferragut",
       "1802530": "Keithian Akemi Delgado Molina",
       "1803683": "Abel Nunez Auge",
-      "1835174": "Angela Morote Moya",
+      "1835174": "angela Morote Moya",
       "1835238": "Antonio Ortiz Folk",
       "1835308": "Arnau Aguilar Basets",
       "1835556": "Carla Bellisco Granero",
       "1835756": "Claudia Rodriguez Ramos",
       "1835846": "Daniel Camargo Rodriguez",
       "1835852": "Daniel Garcia Sanchez",
-      "1835982": "Edson Marcelo Cordova Cevallos",
-      "1836127": "Eric Osuna Fernandez",
+      "1836127": "eric Osuna Fernandez",
       "1836198": "Fabricio Lola Justiniano",
       "1836315": "Gisela Andres Subirats",
       "1836529": "Irene Lopez Salgado",
@@ -1544,7 +1444,6 @@
       "1840288": "Eizan Sevillano Arocha",
       "1840369": "Gemma Lisseth Vaca Quesquen",
       "1840383": "Greysi Gloria Morales Ochante",
-      "1840418": "Ia Bliadze",
       "1840515": "Jose Antonio Rubio Rodriguez",
       "1840632": "Luca Rivero Torres",
       "1840688": "Marc Ros Moreno",
@@ -1573,19 +1472,17 @@
       "1842887": "Manel Camara Alonso",
       "1843015": "Marina Massa Serra",
       "1843115": "Mateu Luis Faixa",
-      "1843155": "Miquel Camps Caldes",
-      "1843261": "Noa Sanchez Marin",
       "1843483": "Santiago Borrell Perez",
       "1843676": "Yongsheng Aran Ley Altimira",
-      "1845508": "Eneritz Perez Bozas",
       "1845651": "Pol Berenguer Moya",
       "1845685": "Zixuan Yang",
       "1846265": "Ignacio Saperas Comas",
       "1846304": "Zaira Valentina Ariza Sierra",
-      "2033205": "Ana Rubira Garcia",
       "2104350": "Susana Santana Munoz"
     },
-    "sesionActualIniciadaAt": "2026-10-01T21:49:04.540Z",
+    "sesionActualIniciadaAt": "2026-10-02T11:37:34.998Z",
+    "sesionActualTiempos": {},
+    "sesionActualRecursosIniciales": {},
     "fase": "pausa",
     "numeroSesion": 1,
     "config": {
@@ -1598,8 +1495,8 @@
         "historiales": true
       }
     },
-    "createdAt": "2026-10-01T21:49:04.540Z",
-    "updatedAt": "2026-10-01T21:49:35.570Z",
+    "createdAt": "2026-10-02T11:37:34.998Z",
+    "updatedAt": "2026-10-02T11:39:37.531Z",
     "entregasAbiertas": false,
     "produccionAbierta": false
   }

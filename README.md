@@ -22,3 +22,19 @@ Las consolas solicitan explícitamente el historial al servidor mediante `solici
 ## Calculadora
 
 La calculadora del jugador muestra producción y desperdicio de trigo y hierro. Para los procesos 1 y 2, el desperdicio corresponde al insumo que queda fuera de la proporción necesaria del proceso. El proceso 3 no tiene desperdicio.
+
+## Historial y auditoría
+
+El historial de OIKOS conserva una traza común para administrador y jugadores, y el superadministrador puede consultar la misma información por experimento. Cada sesión cerrada registra:
+
+- hora de apertura de la sesión y de las entregas;
+- hora de cierre de entregas y apertura de producción;
+- hora de cierre de producción y fin de la sesión;
+- recursos de cada jugador al comenzar la sesión;
+- recursos de cada jugador después de las entregas;
+- cada entrega individual, con usuario, nombre visible, cantidades y hora;
+- proceso elegido y producción obtenida por jugador;
+- recursos finales de cada jugador;
+- ediciones y eliminaciones realizadas por el administrador.
+
+La descarga Excel genera hojas separadas de **Tiempos**, **Recursos iniciales**, **Entregas**, **Producción** y **Ediciones**.
