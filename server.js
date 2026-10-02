@@ -504,6 +504,8 @@ function normalizarSala(sala) {
   s.historial = Array.isArray(s.historial) ? s.historial : [];
   s.historialSesiones = Array.isArray(s.historialSesiones) ? s.historialSesiones : [];
   s.historialEdicionesJugadores = Array.isArray(s.historialEdicionesJugadores) ? s.historialEdicionesJugadores : [];
+  s.sesionActualTiempos = s.sesionActualTiempos && typeof s.sesionActualTiempos === "object" ? s.sesionActualTiempos : {};
+  s.sesionActualRecursosIniciales = s.sesionActualRecursosIniciales && typeof s.sesionActualRecursosIniciales === "object" ? s.sesionActualRecursosIniciales : {};
 
   // Corrige salas creadas con la versión que mostraba la primera sesión como 2.
   // Si aún no hay ninguna sesión cerrada, esa partida en curso es la sesión 1.
@@ -591,31 +593,31 @@ async function guardarHistorial(sala) {
 
 function historialSesionesPublico(data, socket) {
   const esAdmin = socket.data.rol === "admin" && data.adminId === socket.id;
-  const nombre = socket.data.nombreJugador || null;
+  const esJugador = socket.data.rol === "jugador";
 
   return (data.historialSesiones || []).map((sesion) => {
-    const entregas = data.config.informacionPublica.entregasGlobales || esAdmin
-      ? (sesion.entregas || []).map(e => ({ ...e }))
-      : (sesion.entregas || []).filter(e => e.de === nombre || e.para === nombre).map(e => ({ ...e }));
-
-    // Los historiales pueden ocultarse para jugadores, pero el administrador
-    // siempre conserva acceso. Los procesos de otros jugadores NUNCA se
-    // exponen a jugadores, independientemente de la configuración pública.
-    if (!esAdmin && !data.config.informacionPublica.historiales) return null;
+    // El historial estructurado es común para administrador, jugadores y
+    // superadministrador. Las restricciones de privacidad de la vista actual
+    // siguen aplicándose al estado en vivo, no al registro histórico.
+    const entregas = (sesion.entregas || []).map(e => ({ ...e }));
+    if (!esAdmin && !esJugador && socket.data.rol !== "superadmin") return null;
 
     const produccion = {};
     for (const [jugador, p] of Object.entries(sesion.produccion || {})) {
-      if (esAdmin) {
-        produccion[jugador] = { ...p };
-      } else {
-        produccion[jugador] = { ...p, proceso: jugador === nombre ? p.proceso : null };
-      }
+      produccion[jugador] = { ...p };
     }
 
     return {
       numeroSesion: sesion.numeroSesion,
       iniciadaAt: sesion.iniciadaAt,
+      entregasAbiertasAt: sesion.entregasAbiertasAt || sesion.tiempos?.entregasAbiertasAt || sesion.iniciadaAt || null,
+      entregasCerradasAt: sesion.entregasCerradasAt || sesion.tiempos?.entregasCerradasAt || null,
+      produccionAbiertaAt: sesion.produccionAbiertaAt || sesion.tiempos?.produccionAbiertaAt || null,
+      produccionCerradaAt: sesion.produccionCerradaAt || sesion.tiempos?.produccionCerradaAt || sesion.finalizadaAt || null,
       finalizadaAt: sesion.finalizadaAt,
+      tiempos: copiar(sesion.tiempos || {}),
+      recursosIniciales: copiar(sesion.recursosIniciales || {}),
+      recursosDespuesEntregas: copiar(sesion.recursosDespuesEntregas || {}),
       entregas,
       produccion,
     };
@@ -861,7 +863,9 @@ function datosExperimentoSuperadmin(nombreSala) {
     sesionesRealizadas: sesiones.length || Math.max(0, Number(data.numeroSesion || 1) - 1),
     entregas: JSON.parse(JSON.stringify(entregas)),
     producciones: JSON.parse(JSON.stringify(producciones)),
-    sesiones: JSON.parse(JSON.stringify(sesiones))
+    sesiones: JSON.parse(JSON.stringify(sesiones)),
+    ediciones: JSON.parse(JSON.stringify(data.historialEdicionesJugadores || [])),
+    nombresVisibles: JSON.parse(JSON.stringify(data.nombresVisibles || {}))
   };
 }
 
@@ -889,8 +893,9 @@ function exigirSuperadmin(socket) {
 // -----------------------------------------------------------------------------
 
 function historialEdicionesJugadoresPublico(data, socket) {
-  const esAdmin = socket.data.rol === "admin" && data.adminId === socket.id;
-  if (!esAdmin) return [];
+  const autenticadoEnSala = socket.data.sala === socket.data.sala &&
+    (socket.data.rol === "jugador" || (socket.data.rol === "admin" && data.adminId === socket.id));
+  if (!autenticadoEnSala) return [];
   return (data.historialEdicionesJugadores || []).map((e) => ({ ...e }));
 }
 
@@ -982,6 +987,8 @@ io.on("connection", (socket) => {
         historialEdicionesJugadores: [],
         nombresVisibles: {},
         sesionActualIniciadaAt: ahora(),
+        sesionActualTiempos: {},
+        sesionActualRecursosIniciales: {},
         fase: "pausa",
         numeroSesion: 1,
         config: copiar(DEFAULT_CONFIG),
@@ -1349,6 +1356,7 @@ io.on("connection", (socket) => {
         data.historialEdicionesJugadores.push({
           id: generarId(),
           timestamp: data.updatedAt,
+          sesion: data.numeroSesion,
           accion: "Edición",
           usuario: nuevoNombre,
           nombreVisible: nuevoVisible,
@@ -1405,6 +1413,7 @@ io.on("connection", (socket) => {
       data.historialEdicionesJugadores.push({
         id: generarId(),
         timestamp: timestampEliminacion,
+        sesion: data.numeroSesion,
         accion: "Eliminación",
         usuario: "—",
         nombreVisible: "—",
@@ -1608,7 +1617,9 @@ io.on("connection", (socket) => {
         id: generarId(),
         sesion: data.numeroSesion,
         de,
+        deNombreVisible: emisor.nombreVisible || de,
         para: receptorNombre,
+        paraNombreVisible: receptor.nombreVisible || receptorNombre,
         trigo: cantidadTrigo,
         hierro: cantidadHierro,
         timestamp: ahora(),
@@ -1641,14 +1652,27 @@ io.on("connection", (socket) => {
         );
       }
 
-      // Capturamos los recursos disponibles al terminar las entregas.
+      // Capturamos los recursos disponibles al terminar las entregas y
+      // registramos exactamente cuándo se cierra una fase y se abre la siguiente.
+      const cierreEntregasAt = ahora();
       for (const jugador of Object.values(data.jugadores)) {
         jugador.trigoInsumo = jugador.trigo;
         jugador.hierroInsumo = jugador.hierro;
       }
+      data.sesionActualTiempos = data.sesionActualTiempos || {};
+      data.sesionActualTiempos.entregasCerradasAt = cierreEntregasAt;
+      data.sesionActualTiempos.produccionAbiertaAt = cierreEntregasAt;
+      data.sesionActualRecursosDespuesEntregas = {};
+      for (const [nombre, jugador] of Object.entries(data.jugadores)) {
+        data.sesionActualRecursosDespuesEntregas[nombre] = {
+          nombreVisible: jugador.nombreVisible || nombre,
+          trigo: jugador.trigo,
+          hierro: jugador.hierro,
+        };
+      }
 
       data.fase = "produccion";
-      data.updatedAt = ahora();
+      data.updatedAt = cierreEntregasAt;
 
       await encolarGuardado();
       emitirEstado(sala);
@@ -1754,8 +1778,13 @@ io.on("connection", (socket) => {
       const produccionSesion = {};
       for (const [nombre, jugador] of Object.entries(data.jugadores)) {
         produccionSesion[nombre] = {
+          nombreVisible: jugador.nombreVisible || nombre,
+          trigoInicioSesion: data.sesionActualRecursosIniciales?.[nombre]?.trigo ?? null,
+          hierroInicioSesion: data.sesionActualRecursosIniciales?.[nombre]?.hierro ?? null,
           trigoInicial: jugador.trigoInsumo,
           hierroInicial: jugador.hierroInsumo,
+          trigoDespuesEntregas: jugador.trigoInsumo,
+          hierroDespuesEntregas: jugador.hierroInsumo,
           proceso: jugador.proceso ?? 3,
           trigoProducido: jugador.trigoProd,
           hierroProducido: jugador.hierroProd,
@@ -1767,10 +1796,20 @@ io.on("connection", (socket) => {
       // Crear el registro histórico ANTES de modificar la sesión actual.
       // Se guarda una copia independiente para que nunca dependa del estado
       // que tengan los jugadores después de comenzar la siguiente sesión.
+      const finalizadaAt = ahora();
+      data.sesionActualTiempos = data.sesionActualTiempos || {};
+      data.sesionActualTiempos.produccionCerradaAt = finalizadaAt;
       const sesionTerminada = {
         numeroSesion: data.numeroSesion,
         iniciadaAt: data.sesionActualIniciadaAt || data.createdAt,
-        finalizadaAt: ahora(),
+        entregasAbiertasAt: data.sesionActualTiempos.entregasAbiertasAt || data.sesionActualIniciadaAt || data.createdAt,
+        entregasCerradasAt: data.sesionActualTiempos.entregasCerradasAt || null,
+        produccionAbiertaAt: data.sesionActualTiempos.produccionAbiertaAt || null,
+        produccionCerradaAt: finalizadaAt,
+        finalizadaAt,
+        tiempos: copiar(data.sesionActualTiempos),
+        recursosIniciales: copiar(data.sesionActualRecursosIniciales || {}),
+        recursosDespuesEntregas: copiar(data.sesionActualRecursosDespuesEntregas || {}),
         entregas: (data.historial || []).map(e => ({ ...e })),
         produccion: copiar(produccionSesion),
       };
@@ -1849,11 +1888,26 @@ io.on("connection", (socket) => {
       }
 
       data.fase = "entregas";
+      const inicioSesionAt = ahora();
+      data.sesionActualIniciadaAt = inicioSesionAt;
+      data.sesionActualTiempos = {
+        sesionAbiertaAt: inicioSesionAt,
+        entregasAbiertasAt: inicioSesionAt,
+      };
+      data.sesionActualRecursosIniciales = {};
+      for (const [nombre, jugador] of Object.entries(data.jugadores)) {
+        data.sesionActualRecursosIniciales[nombre] = {
+          nombreVisible: jugador.nombreVisible || nombre,
+          trigo: jugador.trigo,
+          hierro: jugador.hierro,
+        };
+      }
+      data.sesionActualRecursosDespuesEntregas = {};
       const esPrimeraSesion = data.numeroSesion === 1 &&
         (!Array.isArray(data.historialSesiones) || data.historialSesiones.length === 0) &&
         (!Array.isArray(data.historial) || data.historial.length === 0);
       if (!esPrimeraSesion) data.numeroSesion += 1;
-      data.sesionActualIniciadaAt = ahora();
+      // La marca de tiempo y los recursos corresponden a la sesión que acaba de abrirse.
       data.historial = [];
       data.updatedAt = ahora();
 
