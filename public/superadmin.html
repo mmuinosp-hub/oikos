@@ -66,6 +66,7 @@ const $=id=>document.getElementById(id);
 function err(msg){$("loginError").textContent=msg;$("loginError").classList.remove("hidden")}
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
 function fecha(v){if(!v)return"—";const d=new Date(v);return Number.isNaN(d.getTime())?esc(v):d.toLocaleString("es-ES")}
+function nv(n,d){return d?.nombresVisibles?.[n]||n}
 function render(lista){
  lista=Array.isArray(lista)?lista:[];
  $("totalExperimentos").textContent=lista.length;
@@ -93,41 +94,28 @@ socket.on("experimentoSuperadmin",d=>{
  if(!d)return;
  window.experimentoActual=d;
  $("listaCard").classList.add("hidden");$("detalleCard").classList.remove("hidden");
- const sesiones=Array.isArray(d.sesiones)?d.sesiones:[];
- const entregas=Array.isArray(d.entregas)?d.entregas:[];
- const prods=d.producciones&&typeof d.producciones==="object"?d.producciones:{};
- const jugadores=Object.keys(prods);
+ const sesiones=Array.isArray(d.sesiones)?d.sesiones:[],ediciones=Array.isArray(d.ediciones)?d.ediciones:[];
  let html=`<div class="hero"><h2>${esc(d.sala)}</h2><p>${+d.participantes||0} participantes · ${+d.sesionesRealizadas||0} sesiones realizadas</p></div>`;
- html+=`<details><summary>📦 Entregas registradas (${entregas.length})</summary><div class="detail">`;
- html+=entregas.length?`<table><thead><tr><th>Sesión</th><th>De</th><th>Para</th><th>Trigo</th><th>Hierro</th><th>Fecha</th></tr></thead><tbody>${entregas.map(e=>`<tr><td>${esc(e.sesion??"—")}</td><td>${esc(e.de)}</td><td>${esc(e.para)}</td><td>${e.trigo??0}</td><td>${e.hierro??0}</td><td>${fecha(e.timestamp)}</td></tr>`).join("")}</tbody></table>`:"<p class='mini'>No hay entregas registradas.</p>";
+ html+=`<details open><summary>📚 Historial de sesiones (${sesiones.length})</summary><div class="detail">`;
+ html+=sesiones.length?sesiones.slice().reverse().map((x,i)=>{
+  const n=x.numeroSesion??x.sesion??i+1,r=x.recursosIniciales||{};
+  const rr=Object.entries(r).map(([k,v])=>`<tr><td>${esc(k)}</td><td>${esc(v.nombreVisible||nv(k,d))}</td><td>${v.trigo??0}</td><td>${v.hierro??0}</td></tr>`).join("");
+  const ee=(x.entregas||[]).map(v=>`<tr><td>${esc(v.deNombreVisible||nv(v.de,d))}</td><td>${esc(v.paraNombreVisible||nv(v.para,d))}</td><td>${v.trigo??0}</td><td>${v.hierro??0}</td><td>${fecha(v.timestamp)}</td></tr>`).join("");
+  const pp=Object.entries(x.produccion||{}).map(([k,v])=>`<tr><td>${esc(v.nombreVisible||nv(k,d))}</td><td>${v.trigoInicioSesion??0}</td><td>${v.hierroInicioSesion??0}</td><td>${v.trigoDespuesEntregas??v.trigoInicial??0}</td><td>${v.hierroDespuesEntregas??v.hierroInicial??0}</td><td>${esc(v.proceso??"—")}</td><td>${v.trigoProducido??0}</td><td>${v.hierroProducido??0}</td><td>${v.trigoFinal??0}</td><td>${v.hierroFinal??0}</td></tr>`).join("");
+  return `<details><summary>Sesión ${esc(n)} · ${fecha(x.iniciadaAt)} → ${fecha(x.finalizadaAt)}</summary><div class="detail"><p class="mini">Entregas abiertas: ${fecha(x.entregasAbiertasAt)} · Entregas cerradas: ${fecha(x.entregasCerradasAt)} · Producción abierta: ${fecha(x.produccionAbiertaAt)} · Producción cerrada: ${fecha(x.produccionCerradaAt)}</p><h4>📦 Recursos al comenzar</h4>${rr?`<table><tr><th>Usuario</th><th>Jugador</th><th>Trigo</th><th>Hierro</th></tr>${rr}</table>`:"<p class='mini'>Sin datos.</p>"}<h4>📜 Entregas</h4>${ee?`<table><tr><th>De</th><th>Para</th><th>Trigo</th><th>Hierro</th><th>Hora</th></tr>${ee}</table>`:"<p class='mini'>Sin entregas.</p>"}<h4>⚙️ Producción</h4>${pp?`<table><tr><th>Jugador</th><th>Trigo al inicio</th><th>Hierro al inicio</th><th>Trigo después de entregas</th><th>Hierro después de entregas</th><th>Proceso</th><th>Trigo producido</th><th>Hierro producido</th><th>Trigo final</th><th>Hierro final</th></tr>${pp}</table>`:"<p class='mini'>Sin producción.</p>"}</div></details>`;
+ }).join(""):"<p class='mini'>No hay sesiones registradas.</p>";
  html+=`</div></details>`;
- html+=`<details><summary>⚙️ Producciones registradas (${jugadores.length})</summary><div class="detail">`;
- html+=jugadores.length?`<table><thead><tr><th>Jugador</th><th>Proceso</th><th>Trigo producido</th><th>Hierro producido</th></tr></thead><tbody>${jugadores.map(n=>{const p=prods[n]||{};return `<tr><td>${esc(n)}</td><td>${esc(p.proceso??"—")}</td><td>${p.trigoProd??0}</td><td>${p.hierroProd??0}</td></tr>`}).join("")}</tbody></table>`:"<p class='mini'>No hay producciones registradas.</p>";
- html+=`</div></details>`;
- html+=`<details><summary>📚 Sesiones (${sesiones.length})</summary><div class="detail">`;
- html+=sesiones.length?sesiones.map((s,i)=>`<details><summary>Sesión ${esc(s.sesion??i+1)} — ${esc(s.fecha??s.timestamp??"")}</summary><div class="detail"><pre style="white-space:pre-wrap">${esc(JSON.stringify(s,null,2))}</pre></div></details>`).join(""):"<p class='mini'>No hay registros estructurados de sesiones. El contador indica las sesiones cerradas detectadas.</p>";
- html+=`</div></details>`;
+ const ed=ediciones.map(x=>{const a=x.anterior||{},b=x.posterior||{};return `<tr><td>${fecha(x.timestamp)}</td><td>${esc(x.sesion??"—")}</td><td>${esc(x.accion||"Edición")}</td><td>${esc(a.usuario??x.usuarioAnterior??"—")}</td><td>${esc(b.usuario??x.usuario??"—")}</td><td>${esc((a.trigo??"—")+" → "+(b.trigo??"—"))}</td><td>${esc((a.hierro??"—")+" → "+(b.hierro??"—"))}</td><td>${esc((a.proceso??"—")+" → "+(b.proceso??"—"))}</td></tr>`}).join("");
+ html+=`<details><summary>✏️ Ediciones del administrador (${ediciones.length})</summary><div class="detail">${ed?`<table><tr><th>Hora</th><th>Sesión</th><th>Acción</th><th>Usuario anterior</th><th>Usuario nuevo</th><th>Trigo</th><th>Hierro</th><th>Proceso</th></tr>${ed}</table>`:"<p class='mini'>No hay ediciones registradas.</p>"}</div></details>`;
  $("detalle").innerHTML=html;
 });
 window.descargarExperimento=()=>{
- const d=window.experimentoActual;
- if(!d)return alert("Selecciona un experimento primero.");
- if(typeof XLSX==="undefined")return alert("No se ha podido cargar el módulo Excel.");
- const sesiones=Array.isArray(d.sesiones)?d.sesiones:[];
- const e=[["Sesión","Fecha inicio","Fecha fin","De","Para","Trigo entregado","Hierro entregado","Hora"]];
- const p=[["Sesión","Fecha inicio","Fecha fin","Jugador","Trigo después de entregas","Hierro después de entregas","Proceso","Producción de trigo","Producción de hierro"]];
- const raw=[["Sesión","Fecha inicio","Fecha fin","Datos de sesión (JSON)"]];
- sesiones.forEach((x,i)=>{
-   const n=x.numeroSesion??x.sesion??i+1;
-   (x.entregas||[]).forEach(v=>e.push([n,x.iniciadaAt,x.finalizadaAt,v.de,v.para,v.trigo??0,v.hierro??0,v.timestamp]));
-   Object.entries(x.produccion||{}).forEach(([k,v])=>p.push([n,x.iniciadaAt,x.finalizadaAt,k,v.trigoInicial??0,v.hierroInicial??0,v.proceso??"—",v.trigoProducido??0,v.hierroProducido??0]));
-   raw.push([n,x.iniciadaAt,x.finalizadaAt,JSON.stringify(x)]);
- });
- const wb=XLSX.utils.book_new();
- XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(e),"Entregas");
- XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(p),"Producción");
- XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(raw),"Sesiones");
- XLSX.writeFile(wb,`OIKOS_superadmin_${d.sala}.xlsx`);
+ const d=window.experimentoActual;if(!d)return alert("Selecciona un experimento primero.");if(typeof XLSX==="undefined")return alert("No se ha podido cargar el módulo Excel.");
+ const sesiones=Array.isArray(d.sesiones)?d.sesiones:[],ediciones=Array.isArray(d.ediciones)?d.ediciones:[];
+ const t=[["Sesión","Sesión abierta","Entregas abiertas","Entregas cerradas","Producción abierta","Producción cerrada","Sesión finalizada"]],e=[["Sesión","De","Nombre visible de","Para","Nombre visible para","Trigo entregado","Hierro entregado","Hora"]],p=[["Sesión","Usuario","Jugador","Trigo inicial","Hierro inicial","Trigo después de entregas","Hierro después de entregas","Proceso","Producción de trigo","Producción de hierro"]],ed=[["Hora","Acción","Sesión","Usuario anterior","Usuario nuevo","Nombre visible anterior","Nombre visible nuevo","Trigo anterior","Trigo nuevo","Hierro anterior","Hierro nuevo","Entregas anteriores","Entregas nuevas","Proceso anterior","Proceso nuevo","Contraseña"]];
+ sesiones.forEach((x,i)=>{const n=x.numeroSesion??x.sesion??i+1;t.push([n,x.tiempos?.sesionAbiertaAt||x.iniciadaAt,x.entregasAbiertasAt,x.entregasCerradasAt,x.produccionAbiertaAt,x.produccionCerradaAt,x.finalizadaAt]);(x.entregas||[]).forEach(v=>e.push([n,v.de,v.deNombreVisible||nv(v.de,d),v.para,v.paraNombreVisible||nv(v.para,d),v.trigo,v.hierro,v.timestamp]));Object.entries(x.produccion||{}).forEach(([k,v])=>p.push([n,k,v.nombreVisible||nv(k,d),v.trigoInicial??"",v.hierroInicial??"",v.trigoDespuesEntregas??"",v.hierroDespuesEntregas??"",v.proceso??"—",v.trigoProducido??0,v.hierroProducido??0]));});
+ ediciones.forEach(x=>{const a=x.anterior||{},b=x.posterior||{};ed.push([x.timestamp,x.accion||"Edición",x.sesion??"—",a.usuario??x.usuarioAnterior??"—",b.usuario??x.usuario??"—",a.nombreVisible??x.nombreVisibleAnterior??"—",b.nombreVisible??x.nombreVisible??"—",a.trigo??"—",b.trigo??"—",a.hierro??"—",b.hierro??"—",a.entregas??"—",b.entregas??"—",a.proceso??"—",b.proceso??"—",b.contraseña??"—"])});
+ const wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(t),"Tiempos");XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(e),"Entregas");XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(p),"Producción");XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(ed),"Ediciones");XLSX.writeFile(wb,`OIKOS_superadmin_${d.sala}.xlsx`);
 };
 $("downloadBtn").onclick=()=>window.descargarExperimento();
 
