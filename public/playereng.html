@@ -24,12 +24,13 @@
 
 <div id="deliveryBox" class="box"><h3>Send delivery</h3><p id="deliveryMsg" class="bad"></p><form id="delivery"><select id="to" required></select><input id="sendWheat" type="number" min="0" step="any" placeholder="Wheat"><input id="sendIron" type="number" min="0" step="any" placeholder="Iron"><button>Send</button></form></div>
 <div id="productionBox" class="box hidden"><h3>Choose process</h3><button data-process="1">Process 1 — Wheat</button><button data-process="2">Process 2 — Iron</button><button data-process="3">Process 3 — Simplify</button><p id="chosen"></p></div>
+
+
 <div class="box"><h3>Calculator</h3>
-
-
-<table width=100%><tr><td width=50%>Wheat:<input id="calcWheat" type="number" min="0" step="any">
-<td width=50%>Iron:<input id="calcIron" type="number" min="0" step="any">
-</tr></table><button type="button" id="refreshCalcInputs">Update inputs with current resources</button> <div id="calc"></div></div>
+Wheat:<input id="calcWheat" type="number" min="0" step="any"><br>
+Iron:<input id="calcIron" type="number" min="0" step="any"><br>
+<button type="button" id="refreshCalcInputs">Update inputs with current resources</button> <div id="calc">
+</div></div>
 
 <details class="open-default" open><summary>🤝 Deliveries I send and receive</summary><div class="inside"><div id="myDeliveries">No deliveries.</div></div></details>
 <details><summary>📜 Current-session deliveries</summary><div class="inside"><div id="currentDeliveries">No deliveries.</div></div></details>

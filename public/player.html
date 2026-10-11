@@ -24,12 +24,12 @@
 
 <div id="deliveryBox" class="box"><h3>Enviar entrega</h3><p id="deliveryMsg" class="bad"></p><form id="delivery"><select id="to" required></select><input id="sendWheat" type="number" min="0" step="any" placeholder="Trigo"><input id="sendIron" type="number" min="0" step="any" placeholder="Hierro"><button>Enviar</button></form></div>
 <div id="productionBox" class="box hidden"><h3>Elegir proceso</h3><button data-process="1">Proceso 1 — Trigo</button><button data-process="2">Proceso 2 — Hierro</button><button data-process="3">Proceso 3 — Simplificar</button><p id="chosen"></p></div>
+
 <div class="box"><h3>Calculadora</h3>
-
-
-<table width=100%><tr><td width=50%>Trigo:<input id="calcWheat" type="number" min="0" step="any">
-<td width=50%>Hierro:<input id="calcIron" type="number" min="0" step="any">
-</tr></table><button type="button" id="refreshCalcInputs">Actualizar insumos con los recursos actuales</button> <div id="calc"></div></div>
+Trigo:<input id="calcWheat" type="number" min="0" step="any"><br>
+Hierro:<input id="calcIron" type="number" min="0" step="any"><br>
+<button type="button" id="refreshCalcInputs">Actualizar insumos con los recursos actuales</button> <div id="calc">
+</div></div>
 
 <details class="open-default" open><summary>🤝 Entregas que hago y recibo</summary><div class="inside"><div id="myDeliveries">Sin entregas.</div></div></details>
 <details><summary>📜 Entregas de la sesión actual</summary><div class="inside"><div id="currentDeliveries">Sin entregas.</div></div></details>
